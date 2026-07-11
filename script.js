@@ -54,9 +54,24 @@ const executeCookiesLogic = () => {
 
 // Variável global para o item carregado na página
 let currentDetailItem = null;
+const authVisualStateKey = 'loggedIn';
+
+function applyStoredAuthUiState() {
+  const loggedIn = localStorage.getItem(authVisualStateKey) === 'true';
+
+  document.querySelectorAll('.nav-login').forEach(function(button) {
+    button.style.display = loggedIn ? 'none' : 'block';
+  });
+
+  document.querySelectorAll('.nav-logout').forEach(function(button) {
+    button.style.display = loggedIn ? 'block' : 'none';
+  });
+}
 
 // Executa a lógica dos cookies
 executeCookiesLogic();
+
+window.addEventListener('DOMContentLoaded', applyStoredAuthUiState);
 
 
 
@@ -211,6 +226,8 @@ if (authCloseButton) {
 }
 
 function updateAuthUi(user) {
+  localStorage.setItem(authVisualStateKey, user ? 'true' : 'false');
+
   document.querySelectorAll(".nav-login").forEach(function(button) {
     button.style.display = user ? "none" : "block";
   });
@@ -272,7 +289,8 @@ function initializeFirebaseAuth() {
       provider.setCustomParameters({ prompt: "select_account" });
 
       auth.signInWithPopup(provider)
-        .then(function() {
+        .then(function(result) {
+          updateAuthUi(result.user);
           const authModal = document.getElementById("auth-modal");
           hideSlidingWindow(authModal);
         })
@@ -299,6 +317,9 @@ function initializeFirebaseAuth() {
 
     button.dataset.authBound = "true";
     button.addEventListener("click", function() {
+      localStorage.setItem(authVisualStateKey, 'false');
+      updateAuthUi(null);
+
       auth.signOut().catch(function(error) {
         console.error("Erro ao terminar sessão:", error);
       });
