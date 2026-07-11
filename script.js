@@ -373,7 +373,13 @@ if (document.readyState === "loading") {
           }
         });
 
-        const productsList = document.querySelector('.products ul');
+        const productsContainer = document.querySelector('.products');
+        let productsList = productsContainer ? productsContainer.querySelector('ul') : null;
+
+        if (productsContainer && !productsList) {
+          productsList = document.createElement('ul');
+          productsContainer.appendChild(productsList);
+        }
 
         if (productsList) {
           while (productsList.children.length < filteredItems.length) {
