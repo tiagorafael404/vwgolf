@@ -15,6 +15,7 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="auth-state.js"></script>
 
 </head>
 
@@ -25,18 +26,24 @@
                 <ul>
                     <li><a href="/home.html">Home</a></li>
                     <li id="contactme"><a href="#">Contact</a></li>
+                    <li><a href="aboutus.html">About us</a></li>
+                </ul>
+            </div>
 
             <div class="menu2" id="more">
                 <i class="material-icons" style="color:white">menu</i>
             </div>
 
             <div class="logo">
-                <a href="home.html">VW Golf</a>
+                <a href="/home.html">VW Golf</a>
             </div>
 
             <div class="more">
                 <div class="nav-login">
                     <a>Login</a>
+                </div>
+                <div class="nav-logout" style="display:none">
+                    <a>Logout</a>
                 </div>
             </div>
         </div>
@@ -52,10 +59,11 @@
         </div>
     </div>
 
+    <div class="introdution"></div>
 
     <div class="categories">
         <ul>
-            <li style="border: 5px solid black;"><a href="golf3.html" style="font-weight: bold;">GOLF 3</a></li>
+            <li><a href="golf3.html">GOLF 3</a></li>
             <li><a href="golf4.html">GOLF 4</a></li>
         </ul>
 
@@ -66,10 +74,7 @@
     </div>
 
     <div class="products">
-        <ul>
- 
 
-        </ul>
     </div>
 
     <div class="contact" id="contact">
@@ -107,6 +112,24 @@
         </div>
     </div>
 
+    <div class="auth-modal" id="auth-modal">
+        <div class="auth-window">
+            <div class="auth-header">
+                <div class="space"></div>
+                <div class="title">
+                    <div class="title1"><i class="fa fa-user"></i></div>
+                    <div class="title2"><a>Login or create account</a></div>
+                </div>
+                <div class="close"><i class="fa fa-close" id="auth-close"></i></div>
+            </div>
+
+            <div class="auth-content">
+                <i class="fab fa-google" id="google-auth-button" role="button" tabindex="0"></i>
+                <i class="fa-brands fa-apple" id="apple-auth-button" role="button"></i>
+            </div>
+        </div>
+    </div>
+
     <div class="cookies-box" id="cookiesBox">
         <div class="cookies-title">
             <i class="bx bx-cookie"></i>
@@ -120,6 +143,9 @@
             <button class="button" id="declineBtn">Decline</button>
         </div>
     </div>
+<script src="firebase-config.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <script src="script.js"></script>
 
 

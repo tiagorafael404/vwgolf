@@ -210,6 +210,108 @@ if (authCloseButton) {
   });
 }
 
+function updateAuthUi(user) {
+  document.querySelectorAll(".nav-login").forEach(function(button) {
+    button.style.display = user ? "none" : "block";
+  });
+
+  document.querySelectorAll(".nav-logout").forEach(function(button) {
+    button.style.display = user ? "block" : "none";
+  });
+}
+
+function hasConfiguredFirebase(config) {
+  const requiredKeys = ["apiKey", "authDomain", "projectId", "appId"];
+
+  return requiredKeys.every(function(key) {
+    return typeof config?.[key] === "string"
+      && config[key].trim() !== ""
+      && !config[key].includes("COLE_AQUI");
+  });
+}
+
+function initializeFirebaseAuth() {
+  if (window.__vwGolfAuthInitialized) {
+    return;
+  }
+
+  window.__vwGolfAuthInitialized = true;
+
+  if (!window.firebase) {
+    return;
+  }
+
+  const firebaseConfig = window.VWGolfFirebaseConfig;
+
+  if (!hasConfiguredFirebase(firebaseConfig)) {
+    console.warn("Firebase não configurado. Preencha firebase-config.js com as credenciais do seu projeto.");
+    updateAuthUi(null);
+    return;
+  }
+
+  if (!window.firebase.apps.length) {
+    window.firebase.initializeApp(firebaseConfig);
+  }
+
+  const auth = window.firebase.auth();
+
+  auth.setPersistence(window.firebase.auth.Auth.Persistence.LOCAL).catch(function(error) {
+    console.error("Erro ao definir persistência do login:", error);
+  });
+
+  auth.onAuthStateChanged(function(user) {
+    updateAuthUi(user);
+  });
+
+  const googleButton = document.getElementById("google-auth-button");
+  if (googleButton && !googleButton.dataset.authBound) {
+    googleButton.dataset.authBound = "true";
+
+    const signInWithGoogle = function() {
+      const provider = new window.firebase.auth.GoogleAuthProvider();
+      provider.setCustomParameters({ prompt: "select_account" });
+
+      auth.signInWithPopup(provider)
+        .then(function() {
+          const authModal = document.getElementById("auth-modal");
+          hideSlidingWindow(authModal);
+        })
+        .catch(function(error) {
+          if (error.code !== "auth/popup-closed-by-user") {
+            console.error("Erro ao autenticar com Google:", error);
+          }
+        });
+    };
+
+    googleButton.addEventListener("click", signInWithGoogle);
+    googleButton.addEventListener("keydown", function(event) {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        signInWithGoogle();
+      }
+    });
+  }
+
+  document.querySelectorAll(".nav-logout").forEach(function(button) {
+    if (button.dataset.authBound) {
+      return;
+    }
+
+    button.dataset.authBound = "true";
+    button.addEventListener("click", function() {
+      auth.signOut().catch(function(error) {
+        console.error("Erro ao terminar sessão:", error);
+      });
+    });
+  });
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initializeFirebaseAuth);
+} else {
+  initializeFirebaseAuth();
+}
+
   function getItemsJsonUrl() {
     const documentScript = document.currentScript || document.querySelector('script[src$="script.js"]');
     if (documentScript && documentScript.src) {
