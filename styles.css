@@ -611,6 +611,7 @@ body {
         height: auto;
         display: flex;
         flex-direction: column;
+        
     }
 
     .account-modal .title1 {
@@ -646,7 +647,7 @@ body {
         justify-content: center;
     }
 
-    .account-modal a {
+    .account-modal .title a {
         color: #fff;
         font-size: 20px;
         font-weight: bold;
@@ -662,6 +663,7 @@ body {
         font-weight: 700;
         padding: 12px 28px;
         cursor: pointer;
+        margin: 0 auto 20px auto;
     }
 
 
@@ -678,9 +680,12 @@ body {
 
     }
 
-.account-content a{
+.account-content .account-cart a{
         margin: auto;
         text-decoration: none;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        color: #fff;
+        font-size: 20px;
 
 }
 
