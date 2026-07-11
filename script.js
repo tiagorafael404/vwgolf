@@ -55,16 +55,36 @@ const executeCookiesLogic = () => {
 // Variável global para o item carregado na página
 let currentDetailItem = null;
 const authVisualStateKey = 'loggedIn';
+let firebaseAuthInstance = null;
+let currentAuthUser = null;
+
+function setAccountNavLabel(loggedIn) {
+  document.querySelectorAll('.nav-login a').forEach(function(link) {
+    link.textContent = loggedIn ? 'Account' : 'Sign in';
+  });
+}
+
+function updateAccountActionButton(loggedIn) {
+  const accountLoginButton = document.getElementById('account-login-button');
+  if (!accountLoginButton) {
+    return;
+  }
+
+  accountLoginButton.textContent = loggedIn ? 'Logout' : 'Login with Google';
+}
 
 function applyStoredAuthUiState() {
   const loggedIn = localStorage.getItem(authVisualStateKey) === 'true';
 
+  setAccountNavLabel(loggedIn);
+  updateAccountActionButton(loggedIn);
+
   document.querySelectorAll('.nav-login').forEach(function(button) {
-    button.style.display = loggedIn ? 'none' : 'block';
+    button.style.display = 'block';
   });
 
   document.querySelectorAll('.nav-logout').forEach(function(button) {
-    button.style.display = loggedIn ? 'block' : 'none';
+    button.style.display = 'none';
   });
 }
 
@@ -265,6 +285,14 @@ if (accountCloseButton) {
 const accountLoginButton = document.getElementById("account-login-button");
 if (accountLoginButton) {
   accountLoginButton.addEventListener("click", function() {
+    if (currentAuthUser && firebaseAuthInstance) {
+      updateAuthUi(null);
+      firebaseAuthInstance.signOut().catch(function(error) {
+        console.error("Erro ao terminar sessão:", error);
+      });
+      return;
+    }
+
     openAuthModal();
   });
 }
@@ -292,14 +320,17 @@ if (authCloseButton) {
 }
 
 function updateAuthUi(user) {
+  currentAuthUser = user || null;
   localStorage.setItem(authVisualStateKey, user ? 'true' : 'false');
+  setAccountNavLabel(Boolean(user));
+  updateAccountActionButton(Boolean(user));
 
   document.querySelectorAll(".nav-login").forEach(function(button) {
-    button.style.display = user ? "none" : "block";
+    button.style.display = "block";
   });
 
   document.querySelectorAll(".nav-logout").forEach(function(button) {
-    button.style.display = user ? "block" : "none";
+    button.style.display = "none";
   });
 }
 
@@ -337,6 +368,7 @@ function initializeFirebaseAuth() {
   }
 
   const auth = window.firebase.auth();
+  firebaseAuthInstance = auth;
 
   auth.setPersistence(window.firebase.auth.Auth.Persistence.LOCAL).catch(function(error) {
     console.error("Erro ao definir persistência do login:", error);

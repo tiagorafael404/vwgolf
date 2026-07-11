@@ -562,7 +562,7 @@ body {
         height: auto;
         width: 560px;
         background-color: rgb(17, 16, 31);
-        margin: auto auto auto auto;
+        margin: auto 20px auto auto;
         justify-content: center;
         justify-items: center;
         display: flex;
@@ -1788,7 +1788,7 @@ body {
         height: auto;
         width: 82%;
         background-color: rgb(17, 16, 31);
-        margin: auto auto auto auto;
+        margin: auto 8px auto auto;
         justify-content: center;
         justify-items: center;
         display: flex;
