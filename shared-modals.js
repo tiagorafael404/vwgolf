@@ -8,7 +8,7 @@
         '<div class="mypage">' +
           '<div class="menu">' +
             '<ul>' +
-              '<li><a href="/home.html">Home</a></li>' +
+              '<li><a href="/">Home</a></li>' +
               '<li id="contactme"><a href="#">Contact</a></li>' +
               '<li><a href="aboutus.html">About us</a></li>' +
             '</ul>' +
@@ -17,7 +17,7 @@
             '<i class="material-icons" style="color:white">menu</i>' +
           '</div>' +
           '<div class="logo">' +
-            '<a href="/home.html">VW Golf</a>' +
+            '<a href="/">VW Golf</a>' +
           '</div>' +
           '<div class="more">' +
             '<div class="nav-login"><a>Login</a></div>' +
