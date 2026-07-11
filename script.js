@@ -183,21 +183,51 @@ function openExclusiveSlidingWindow(elementToOpen, elementToClose) {
   toggleSlidingWindow(elementToOpen);
 }
 
+function isUserLoggedIn() {
+  return localStorage.getItem(authVisualStateKey) === 'true';
+}
+
+function openAuthModal() {
+  var authModal = document.getElementById("auth-modal");
+  var contactModal = document.getElementById("contact");
+  openExclusiveSlidingWindow(authModal, contactModal);
+}
+
+function handleContactClick() {
+  var contactModal = document.getElementById("contact");
+  var authModal = document.getElementById("auth-modal");
+
+  if (!isUserLoggedIn()) {
+    openExclusiveSlidingWindow(authModal, contactModal);
+    return;
+  }
+
+  openExclusiveSlidingWindow(contactModal, authModal);
+}
+
 const contactButton = document.getElementById("contactme");
 if (contactButton) {
   contactButton.addEventListener("click", function() {
-    var divmenu = document.getElementById("contact");
-    var authModal = document.getElementById("auth-modal");
-    openExclusiveSlidingWindow(divmenu, authModal);
+    handleContactClick();
   });
 }
 
 const contactPhoneButton = document.getElementById("contactme-phone");
 if (contactPhoneButton) {
   contactPhoneButton.addEventListener("click", function() {
-    var divmenu = document.getElementById("contact");
-    var authModal = document.getElementById("auth-modal");
-    openExclusiveSlidingWindow(divmenu, authModal);
+    handleContactClick();
+  });
+}
+
+const contactForm = document.querySelector(".contact-form form");
+if (contactForm) {
+  contactForm.addEventListener("submit", function(event) {
+    if (isUserLoggedIn()) {
+      return;
+    }
+
+    event.preventDefault();
+    openAuthModal();
   });
 }
 
@@ -211,9 +241,7 @@ if (contactCloseButton) {
 
 document.querySelectorAll(".nav-login").forEach(function(button) {
   button.addEventListener("click", function() {
-    var authModal = document.getElementById("auth-modal");
-    var contactModal = document.getElementById("contact");
-    openExclusiveSlidingWindow(authModal, contactModal);
+    openAuthModal();
   });
 });
 
