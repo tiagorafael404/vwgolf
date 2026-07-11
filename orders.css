@@ -1,0 +1,231 @@
+html {
+    padding: 0px;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;           /* 100vw e 100vh para 100% da janela */
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: auto;
+}
+
+body {
+    background-color: #f6f6f6;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    width: 100%;
+    margin: 3 auto auto auto;
+    
+}
+
+*{
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1{
+    font-family: "Fjalla One", sans-serif;
+}
+
+a{
+    font-family: "Space Mono", monospace;
+}
+
+
+
+
+
+@media screen and (min-width: 1251px) {
+
+
+
+    .mypage {
+        display: inherit;
+        height: inherit;
+        margin: auto;
+        width: 70%;
+        padding: 0px;
+        flex-direction: inherit;
+        justify-content: inherit;
+    }
+
+    
+.orders{
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+    
+
+}
+
+.orders .title{
+        display: flex;
+        background: rgb(210, 208, 208);
+        margin: auto;
+    }
+
+.orders .title ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    background: rgb(203, 158, 158);   
+    
+}
+
+.orders .info{
+        display: flex;
+        flex-direction: row;
+        width: max-content;
+        background: rgb(210, 208, 208);
+
+    
+
+}
+
+.orders .info ul, .orders .title ul{
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    
+}
+
+.orders .title ul li{
+    margin: auto;
+    list-style: none;
+    border-right: 2px solid white;
+    border-left: 2px solid white;
+    border-top: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+
+}
+
+.orders .title ul li a{
+    text-decoration: none;
+    font-size: 18px;
+    margin: auto;
+    font-weight: bold;
+text-shadow: -1px 0 0 #fff;
+}
+
+.orders .info ul li{
+    margin: auto auto auto auto;
+    list-style: none;
+    border-right: 2px solid white;
+    border-left: 2px solid white;
+    border-top: 2px solid white;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    
+
+
+    
+
+}
+
+.orders .info ul li a{
+    text-decoration: none;
+    font-size: 16px;
+    margin: auto;
+}
+
+
+
+
+.orders .info .name, .orders .title .name{
+
+    width: 200px;
+
+}
+
+.orders .info .product, .orders .title .product{
+
+    width: 440px;
+
+}
+
+.orders .info .price, .orders .title .price{
+
+    width: 120px;
+
+}
+
+.orders .info .email, .orders .title .email{
+
+    width: 320px;
+
+}
+
+.orders .info .adress, .orders .title .adress{
+
+    width: 300px;
+
+}
+
+.orders .info .postalcode, .orders .title .postalcode{
+
+    width: 150px;
+
+}
+
+.orders .info .id, .orders .title .id{
+
+    width: 100px;
+
+}
+
+.orders .state{
+    height: 50px;
+    width: 100%;
+    margin: 5 auto 25 0;
+    background-color: white;
+    display: flex;
+
+}
+
+.orders .state a{
+    font-size: 20px;
+    margin: auto auto auto 50;
+
+
+}
+
+    @media screen and (max-width: 1600px) {
+
+
+}
+}
+
+@media screen and (max-width: 1251px) {
+
+
+
+    body{
+        display: flex;
+        flex-direction: column;
+        background-color: #f6f6f6;
+       }
+    
+       .mypage {
+        display: inherit;
+        height: inherit;
+        margin: auto;
+        width: 100%;
+        padding: 0px;
+        flex-direction: inherit;
+        justify-content: inherit;
+    }
+
+
+
+
+
+
+}

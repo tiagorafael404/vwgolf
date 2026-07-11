@@ -1,0 +1,2008 @@
+.navbar a {
+    font-family: "Fjalla One", sans-serif;
+}
+
+html {
+    padding: 0px;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100vw;           /* 100vw e 100vh para 100% da janela */
+    min-height: 100vh;
+    min-height: 100dvh;
+    margin: auto;
+}
+
+body {
+  background: linear-gradient(180deg, #e9eff8 0%, #f8f9fc 100%);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    width: 100%;
+    margin: 3 auto auto auto;
+    min-height: 100vh;
+
+}
+
+*{
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+
+}
+
+
+
+
+
+.product_name a{
+    font-family: "Space Mono", monospace;
+    text-shadow: 1px 2px 1px white;
+
+}
+
+
+.product_price a{
+    font-family: "Fjalla One", sans-serif;
+    letter-spacing: 2px;
+    text-shadow: 1px 2px 1px white;
+
+
+}
+
+.options a{
+    font-family: "Space Mono", monospace;
+
+}
+
+.options li a{
+    font-family: "Space Mono", monospace;
+}
+
+
+@media screen and (min-width: 1251px) {
+
+
+
+    .mypage {
+        display: inherit;
+        height: inherit;
+        margin: auto;
+        width: 70%;
+        padding: 0px;
+        flex-direction: inherit;
+        justify-content: inherit;
+    }
+
+    .navbar {
+        /*background-color: rgba(16, 16, 16, 0.5); colocar background no navbar todo*/
+        min-width: 100%;
+        max-width: 100%;
+        width: auto;
+        height: 80px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        text-decoration: none;
+        text-transform: none;
+        background-color: #494a7e;
+
+    }
+
+    .menu {
+        width: 30%;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .menu ul {
+
+        justify-content: left;
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        width: auto;
+        margin: auto auto auto 0;
+        padding: 0;
+
+    }
+
+    .menu ul li {
+
+        /*background-color: rgba(16, 16, 16); colocar background em cada item*/
+        border-radius: 15px;
+        list-style: none;
+        height: 100%;
+        width: 100px;
+    }
+
+    .menu li:hover {
+        background-color: rgb(16, 16, 16, 0.5);
+        /* Nova cor de fundo quando o mouse está sobre o botão */
+    }
+
+
+    .menu2 {
+        display: none;
+    }
+
+    .navbar a {
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        font-size: 20px;
+        text-transform: none;
+        margin: auto;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+
+    .logo {
+        margin: auto auto auto auto;
+        width: 30%;
+        height: 100%;
+    }
+
+
+    .menu3 {
+        display: none;
+    }
+
+    .more {
+        width: 30%;
+        height: 100%;
+        align-items: right;
+        justify-content: right;
+    }
+
+
+    .nav-login {
+        width: 100;
+        height: 100%;
+
+        margin: auto 0 auto auto;
+        cursor: pointer;
+    }
+
+    .nav-logout {
+        width: 100;
+        height: 100%;
+
+        margin: auto 0 auto auto;
+        cursor: pointer;
+    }
+
+    .more a {
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+        font-size: 20px;
+        text-transform: none;
+        margin: auto;
+        height: 100%;
+        width: 100;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .more a:hover {
+        background-color: rgb(16, 16, 16, 0.5);
+        /* Nova cor de fundo quando o mouse está sobre o botão */
+    }
+
+    .freeshipping {
+        width: 100%;
+        height: 20px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        align-content: center;
+        font-size: 12;
+        text-transform: none;
+        text-decoration: none;
+
+    }
+
+    .freeshipping a {
+        font-family: "Fjalla One", sans-serif;
+
+    }
+
+    .cookies-box {
+        position: fixed;
+
+        display: none;
+        height: 150px;
+        width: 600px;
+        background-color: rgb(21, 21, 21);
+        border-radius: 15px 15px 15px 15px;
+        border: solid 4px #fff;
+        padding: 10px 10px 10px 30px;
+        bottom: 10;
+        /* Encosta a caixa no fundo da tela */
+        left: 60%;
+
+    }
+
+    .cookies-box.show {
+        
+    }
+
+    .cookies-title {
+        display: flex;
+        flex-direction: row;
+        margin: 0 auto 0 auto;
+        color: #fff;
+
+    }
+
+    .cookies-box .cookies-title h1 {
+        font-size: 25px;
+        font-family: "Space Mono", monospace;
+        letter-spacing: 0;
+        margin: auto auto auto 0;
+    }
+
+    .cookies-title i {
+        font-size: 20px;
+        margin: auto 10 auto 0;
+
+    }
+
+    .cookies-box .text {
+        display: flex;
+        flex-direction: row;
+        margin: 5 auto 5 auto;
+        color: #fff;
+        height: auto;
+    }
+
+    .cookies-box .text h2 {
+        color: #fff;
+        font-size: 18px;
+        font-family: "Fjalla One", sans-serif;
+        text-decoration: none;
+        font-weight: normal;
+        letter-spacing: 0.5;
+        margin: auto 0 auto 0;
+        
+
+    }
+
+    .cookies-box .text a {
+        color: aqua;
+        font-size: 20px;
+        font-family: "Space Mono", monospace;
+        margin: auto auto auto 15;
+    }
+
+    .cookies-box .buttons {
+
+        margin: 15 auto 0 auto;
+
+    }
+
+    .cookies-box .buttons #declineBtn,
+    .cookies-box .buttons #acceptBtn {
+        height: 40px;
+        width: 200px;
+        font-size: 18px;
+        background-color: #fff;
+        border-radius: 5px 5px 5px 5px;
+        font-family: "Space Mono", monospace;
+        text-decoration: none;
+        font-weight: bold;
+        letter-spacing: 1;
+        cursor: pointer;
+    }
+
+    .buttons #acceptBtn:hover {
+        background-color: #4070f4;
+        color: #fff;
+    }
+
+    .buttons #declineBtn:hover {
+        background-color: #4070f4;
+        color: #fff;
+
+    }
+
+    #acceptBtn {
+        border: 2px solid #4070f4;
+        background-color: #fff;
+        color: #4070f4;
+    }
+
+    #declineBtn:hover {
+        background-color: #4070f4;
+        color: #fff;
+    }
+
+
+
+    #contact {
+        display: none;
+        /* Inicialmente invisível */
+        opacity: 0;
+        /* Torna a div invisível */
+        transform: translateY(100%);
+        /* Coloca a div fora da tela, abaixo */
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        /* Animação suave de opacidade e movimento */
+    }
+
+    #contact.show {
+        display: block;
+        /* Torna a div visível */
+        opacity: 1;
+        /* Torna a div visível */
+        transform: translateY(0);
+        /* Move a div para a posição original (de baixo para cima) */
+    }
+
+
+
+    .contact {
+        height: auto;
+        width: 1000;
+        margin: auto auto auto auto;
+        justify-content: center;
+        justify-items: center;
+        position: fixed;
+        bottom: 0px;
+        right: 0px;
+    }
+
+    .contact-window {
+        height: auto;
+        width: 800px;
+        background-color: rgb(17, 16, 31);
+        margin: auto auto auto auto;
+        justify-content: center;
+        justify-items: center;
+        display: flex;
+        flex-direction: column;
+        border: solid 5px #fff;
+        border-radius: 25px 25px 25px 25px;
+
+
+    }
+
+    .contact-header {
+        height: 80px;
+        width: 100%;
+        justify-content: space-between;
+        justify-items: center;
+        align-items: center;
+        align-content: center;
+        display: flex;
+
+        margin: 10 auto 0 auto;
+    }
+
+    .contact-form {
+        height: 75%;
+        width: 100%;
+        margin: 0 auto 0 auto;
+        justify-content: center;
+        justify-items: center;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .contact-form form {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto auto auto;
+        width: 80%;
+    }
+
+    .contact-form label {
+        color: #fff;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-weight: bold;
+        font-size: 25px;
+        width: 90%;
+
+    }
+
+    .contact-form input {
+        height: 50px;
+        width: 100%;
+        font-weight: bold;
+        margin: auto auto 20 auto;
+        font-size: 16px;
+        padding: 10px;
+
+    }
+
+    .contact-form textarea {
+        font-size: 16px;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        height: 100px;
+        padding: 10px;
+        box-sizing: border-box;
+        resize: none;
+    }
+
+    .contact-form button {
+        all: unset;
+        width: 250px;
+        height: 50px;
+        background-color: #ff0042;
+        color: #fff;
+        text-align: center;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        border-radius: 10px 10px 10px 10px;
+        font-weight: bold;
+        font-size: 20px;
+        cursor: pointer;
+        margin: 20 auto 20 auto;
+
+    }
+
+
+    .contact .close {
+        width: 20px;
+        aspect-ratio: 1/1;
+        margin: 10 50 auto auto;
+        text-align: center;
+    }
+
+    .contact .space {
+        width: 20px;
+        height: auto;
+        margin: auto auto auto 50;
+
+    }
+
+    .contact .title {
+        width: auto;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+
+
+    }
+
+
+
+    .contact .title1 {
+        width: 100%;
+        height: auto;
+        margin: 0 auto 0 auto;
+        text-align: center;
+
+
+    }
+
+    .contact .title2 {
+        width: 100%;
+        height: auto;
+        margin: 0 auto 0 auto;
+        text-align: center;
+
+
+    }
+
+    .contact a {
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+    }
+
+    .contact .title i {
+        color: #fff;
+        font-size: 22px;
+    }
+
+    .contact .close i {
+        color: #fff;
+        font-size: 22px;
+        border: solid 5px #fff;
+        border-radius: 50%;
+        padding: 5px;
+        cursor: pointer;
+        height: 42px;
+        width: 42px;
+        display: flex;
+        /* Usado para centralizar o ícone */
+        align-items: center;
+        /* Centraliza verticalmente */
+        justify-content: center;
+        /* Centraliza horizontalmente */
+    }
+
+    #auth-modal {
+        display: none;
+        opacity: 0;
+        transform: translateY(100%);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    #auth-modal.show {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .auth-modal {
+        height: auto;
+        width: 1000;
+        margin: auto auto auto auto;
+        justify-content: center;
+        justify-items: center;
+        position: fixed;
+        bottom: 0px;
+        right: 0px;
+    }
+
+    .auth-window {
+        height: auto;
+        width: 740px;
+        background-color: rgb(17, 16, 31);
+        margin: auto auto auto auto;
+        justify-content: center;
+        justify-items: center;
+        display: flex;
+        flex-direction: column;
+        border: solid 5px #fff;
+        border-radius: 25px 25px 25px 25px;
+    }
+
+    .auth-header {
+        height: 80px;
+        width: 100%;
+        justify-content: space-between;
+        justify-items: center;
+        align-items: center;
+        align-content: center;
+        display: flex;
+        margin: 10 auto 0 auto;
+    }
+
+    .auth-content {
+        width: 100%;
+        margin: 0 auto 30px auto;
+        justify-content: center;
+        justify-items: center;
+        display: flex;
+        padding: 0 50px 20px 50px;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .auth-modal .close {
+        width: 20px;
+        aspect-ratio: 1/1;
+        margin: 10 50 auto auto;
+        text-align: center;
+    }
+
+    .auth-modal .space {
+        width: 20px;
+        height: auto;
+        margin: auto auto auto 50;
+    }
+
+    .auth-modal .title {
+        width: auto;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .auth-modal .title1 {
+        width: 100%;
+        height: auto;
+        margin: 0 auto 0 auto;
+        text-align: center;
+    }
+
+    .auth-modal .title2 {
+        width: 100%;
+        height: auto;
+        margin: 0 auto 0 auto;
+        text-align: center;
+    }
+
+    .auth-modal a {
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+
+    .auth-modal .title i {
+        color: #fff;
+        font-size: 22px;
+    }
+
+    .auth-modal .close i {
+        color: #fff;
+        font-size: 22px;
+        border: solid 5px #fff;
+        border-radius: 50%;
+        padding: 5px;
+        cursor: pointer;
+        height: 42px;
+        width: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .auth-content i {
+        margin: 20 auto 20 auto;
+        color: #fff;
+        font-size: 42px;
+    }
+
+    #google-auth-button {
+        cursor: pointer;
+        transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    #google-auth-button:hover,
+    #google-auth-button:focus {
+        color: #fbbc05;
+        transform: scale(1.08);
+        outline: none;
+    }
+
+    /*Paginas "p/..." */
+
+    .p-container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        aspect-ratio: 15 / 8;
+        margin: 15 auto auto auto;
+        border-radius: 8px;
+    }
+
+    .p-container .part1 {
+        width: 57%;
+        height: 100%;
+        display: flex;
+        flex-direction: column-reverse;
+        margin: 0 auto auto 0;
+        border-radius: 8px;
+        background-color: white;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+        
+    }
+
+    .p-container .part2 {
+        width: 41%;
+        height: 100%;
+        border-radius: 10px;
+        margin: 0 0 auto auto;
+        background-color: white;
+        box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);        
+    }
+
+    .p-container .gallery {
+        width: 100%;
+        margin: 0 auto auto 0;
+        border-radius: 10px;
+        
+    }
+
+    .p-container .screen {
+        width: 94%;
+        height: 400;
+        margin: 20 auto 15 auto;
+        border-radius: 10px;
+        background: linear-gradient(180deg, #e9eff8 0%, #f8f9fc 100%);
+        box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .p-container .main_photo {
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        background-size: cover;
+        margin: auto auto 0 auto;
+        
+    }
+
+
+    .p-container .gallery ul {
+        list-style: none;
+        height: 100;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: left;
+        margin: auto auto auto 20;
+
+    }
+
+    .p-container .gallery li {
+        height: 100;
+        aspect-ratio: 1 / 1;
+        border-radius: 10px;
+        background-size: cover;
+        align-items: center;
+        justify-content: space-around;
+        background-position: center;
+        margin: 0 20 0 0;
+
+    }
+    
+    .p-container .gallery li:hover {
+        cursor: pointer;
+    }
+
+    .p-container .info {
+        width: 80%;
+        height: auto;
+        margin: 25 auto 15 30;
+    }
+
+    .p-container .info a {
+        text-decoration: none;
+        color: #fff;
+        text-transform: uppercase;
+        margin: auto;
+        height: 100%;
+        width: 100%;
+    }
+
+    .p-container .product_name {
+        width: 100%;
+        height: auto;
+        margin: auto auto 15 auto;
+    }
+
+    .p-container .product_name a {
+        text-decoration: none;
+        color: black;
+        text-transform: none;
+        margin: auto;
+        height: auto;
+        width: 100%;
+        font-size: 35;
+        font-weight: bold;
+    }
+
+    .p-container .product_description {
+
+        width: 100%;
+        height: auto;
+        margin: 0 auto 20 auto;
+
+    }
+
+    .p-container .product_description a {
+        text-decoration: none;
+        color: black;
+        text-transform: none;
+        margin: auto;
+        height: auto;
+        width: 100%;
+        font-size: 18;
+        font-weight: normal;
+    }
+
+
+
+    .p-container .product_price {
+
+        width: 100%;
+        height: auto;
+        margin: 5 auto 5 5;
+    }
+
+    .p-container .product_price a {
+        text-decoration: none;
+        color: black;
+        text-transform: uppercase;
+        margin: auto;
+        height: auto;
+        width: 100%;
+        font-size: 20;
+        font-weight: normal;
+        display: flex;
+        justify-content: left;
+
+
+    }
+
+
+
+.options {
+        width: 100%;
+        height: auto;
+        margin: auto auto auto auto;
+        Display: flex;
+        flex-direction: column;
+    }
+
+.options .options_title {
+        width: 100%;
+        height: auto;
+        margin: auto auto 10 0;
+        color: black;
+        text-transform: none;
+        text-decoration: none;
+
+    }
+
+.options .options_title a {
+        width: 100%;
+        height: auto;
+        margin: auto auto 10 0;
+        color: black;
+        text-transform: none;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 20;
+
+    }
+
+.options .options_list a {
+        text-decoration: none;
+        color: #fff;
+        text-transform: none;
+        margin: auto;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: left;
+        font-size: 20;
+        font-weight: normal;
+    }
+
+
+.options .options_list ul {
+        list-style: none;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        margin: auto auto auto 0;
+    }
+
+.options .options_list li {
+
+        height: 45px;
+        background-color: #494a7e;
+        margin: auto;
+        border-style: solid;
+        border-color: black;
+        border-width: 0;
+        border-radius: 15px;
+        margin: 0 5 10 0;
+        text-decoration: none;
+    text-transform: none;
+    }
+
+.options .options_list li.selected {
+        border-width: 4px;
+    }
+
+.options .options_list li a {
+        text-decoration: none;
+        color: #fff;
+        text-transform: none;
+        margin: auto;
+        height: 100%;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        font-size: 18;
+        font-weight: normal;
+        text-shadow: 1px 2px 1px rgb(0, 0, 0);
+        padding: 0 15px;
+
+    }
+
+    .p-container .buy_button {
+        width: 200;
+        height: 50;
+        margin: 25 auto 0 35;
+        border-radius: 12px;
+        border-style: solid;
+        border-color: black;
+        border-width: 1;
+        background-color: rgb(225, 130, 12);
+    }
+
+    .p-container .buy_button a {
+        text-decoration: none;
+        color: #ffffff;
+        text-transform: none;
+        margin: auto;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        font-size: 18;
+        word-spacing: 0;
+        letter-spacing: 1;
+        font-family: "Space Mono", monospace;
+    }
+
+    @media screen and (max-width: 1600px) {
+
+    .cookies-box {
+        position: fixed;
+
+        display: none;
+        height: 150px;
+        width: 600px;
+        background-color: rgb(21, 21, 21);
+        border-radius: 15px 15px 15px 15px;
+        border: solid 4px #fff;
+        padding: 10px 10px 10px 30px;
+        bottom: 10;
+        /* Encosta a caixa no fundo da tela */
+        left: 50%;
+    }
+
+    .cookies-box.show {
+        
+    }
+
+    .cookies-title {
+        display: flex;
+        flex-direction: row;
+        margin: 0 auto 0 auto;
+        color: #fff;
+
+    }
+
+    .cookies-box .cookies-title h1 {
+        font-size: 22px;
+        font-family: "Space Mono", monospace;
+        letter-spacing: 0;
+        margin: auto auto auto 0;
+    }
+
+    .cookies-title i {
+        font-size: 18px;
+        margin: auto 10 auto 0;
+
+    }
+
+    .cookies-box .text {
+        display: flex;
+        flex-direction: row;
+        margin: 5 auto 5 auto;
+        color: #fff;
+        height: auto;
+    }
+
+    .cookies-box .text h2 {
+        color: #fff;
+        font-size: 16px;
+        font-family: "Fjalla One", sans-serif;
+        text-decoration: none;
+        font-weight: normal;
+        letter-spacing: 0.5;
+        margin: auto 0 auto 0;
+        
+
+    }
+
+    .cookies-box .text a {
+        color: aqua;
+        font-size: 18px;
+        font-family: "Space Mono", monospace;
+        margin: auto auto auto 15;
+    }
+
+    .cookies-box .buttons {
+
+        margin: 15 auto 0 auto;
+
+    }
+
+    .cookies-box .buttons #declineBtn,
+    .cookies-box .buttons #acceptBtn {
+        height: 40px;
+        width: 200px;
+        font-size: 16px;
+        background-color: #fff;
+        border-radius: 5px 5px 5px 5px;
+        font-family: "Space Mono", monospace;
+        text-decoration: none;
+        font-weight: bold;
+        letter-spacing: 1;
+        cursor: pointer;
+    }
+
+    .buttons #acceptBtn:hover {
+        background-color: #4070f4;
+        color: #fff;
+    }
+
+    .buttons #declineBtn:hover {
+        background-color: #4070f4;
+        color: #fff;
+
+    }
+
+    #acceptBtn {
+        border: 2px solid #4070f4;
+        background-color: #fff;
+        color: #4070f4;
+    }
+
+    #declineBtn:hover {
+        background-color: #4070f4;
+        color: #fff;
+    }
+
+
+
+    .options {
+        width: 100%;
+        height: auto;
+        margin: auto auto auto auto;
+        Display: flex;
+        flex-direction: column;
+    }
+
+    .options .options_title {
+        width: 100%;
+        height: auto;
+        margin: auto auto 10 0;
+        color: black;
+        text-transform: none;
+        text-decoration: none;
+
+    }
+
+    .options .options_title a {
+        width: 100%;
+        height: auto;
+        margin: auto auto 10 0;
+        color: black;
+        text-transform: none;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 20;
+
+    }
+
+
+    .options .options_list li {
+
+        height: 45px;
+        background-color: #494a7e;
+        margin: auto;
+        border-style: solid;
+        border-color: black;
+        border-width: 0;
+        border-radius: 15px;
+        margin: 0 5 10 0;
+    }
+
+.options .options_list li.selected {
+        border-width: 4px;
+    }
+
+    
+
+    }
+}
+
+@media screen and (max-width: 1251px) {
+
+
+    .mypage {
+        display: inherit;
+        height: inherit;
+        margin: auto;
+        width: 100%;
+        padding: 0px;
+        flex-direction: inherit;
+        justify-content: inherit;
+    }
+
+    .navbar {
+        /*background-color: rgba(16, 16, 16, 0.5); colocar background no navbar todo*/
+        min-width: 100%;
+        max-width: 100%;
+        width: 100vw;
+        height: 60px;
+        background-color: 494a7e;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        position: relative;
+
+
+    }
+
+    .menu {
+        display: none;
+        width: 40%;
+        height: 100%;
+        flex-direction: row;
+        margin: auto auto auto auto;
+    }
+
+    .logo {
+        margin: auto auto auto auto;
+        width: 20%;
+        height: 100%;
+        display: flex;
+    }
+
+
+    .more {
+        width: 40%;
+        height: 100%;
+        margin: auto auto auto auto;
+    }
+
+    .nav-login {
+        font-size: 20;
+        margin: auto 15 auto auto;
+        height: 100%;
+        width: 50%;
+    }
+
+    .nav-logout {
+        font-size: 20;
+        margin: auto 15 auto auto;
+        height: 100%;
+        width: 50%;
+    }
+
+    .menu ul {
+        display: none;
+        justify-content: left;
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        width: auto;
+        margin: auto auto auto 5;
+        padding: 0;
+
+
+    }
+
+    .menu ul li {
+
+        /*background-color: rgba(16, 16, 16); colocar background em cada item*/
+        border-radius: 15px;
+        list-style: none;
+        height: 100%;
+        width: 50;
+    }
+
+    .menu li:hover {
+        background-color: rgb(16, 16, 16, 0.5);
+        /* Nova cor de fundo quando o mouse está sobre o botão */
+    }
+
+    .navbar a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 14px;
+        text-transform: none;
+        margin: auto;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .menu2 {
+        width: 40%;
+        cursor: pointer;
+    }
+
+    .menu2 i {
+        font-size: 22;
+        margin: auto auto auto 20%;
+        height: 100%;
+        align-content: center;
+        width: 50%;
+    }
+
+    .freeshipping {
+        width: 100%;
+        height: 18px;
+        background-color: black;
+        color: #fff;
+        text-align: center;
+        align-content: center;
+        font-size: 10;
+        text-transform: none;
+        text-decoration: none;
+    }
+
+
+    .freeshipping a {
+        font-family: "Fjalla One", sans-serif;
+
+    }
+
+
+    .content {
+        position: relative;
+    }
+
+
+
+
+    .more a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 14px;
+        text-transform: none;
+        margin: auto;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .more a:hover {
+        background-color: rgb(16, 16, 16, 0.5);
+        /* Nova cor de fundo quando o mouse está sobre o botão */
+    }
+
+    .menu3 {
+        display: none;
+        width: 100%;
+        height: 300;
+        background-color: rgb(16, 16, 16);
+        position: absolute;
+        border-radius: 0 0 50px 50px;
+    }
+
+    .menu3 ul li a {
+        color: white;
+        font-size: 20;
+        text-decoration: none;
+        text-transform: none;
+        width: 150px;
+        height: 100%;
+        display: flex;
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        justify-items: center;
+        margin: auto;
+    }
+
+    .menu3 ul {
+        height: 50%;
+        width: 70%;
+        margin: 30 auto auto auto;
+
+    }
+
+    .menu3 li {
+        margin: auto auto 20 auto;
+        text-align: center;
+        border-bottom: 2px solid #ffffff;
+        height: 40px;
+        text-decoration: none;
+        text-transform: none;
+        list-style: none;
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        justify-items: center;
+
+    }
+
+
+    .cookies-box {
+        position: fixed;
+
+        display: none;
+        height: 150px;
+        width: 100%;
+        background-color: rgb(21, 21, 21);
+        border-radius: 15px 15px 15px 15px;
+        border: solid 4px #fff;
+        padding: 10px 10px 10px 10px;
+        bottom: 10;
+        /* Encosta a caixa no fundo da tela */
+    }
+
+    .cookies-box.show {}
+
+    .cookies-title {
+        display: flex;
+        flex-direction: row;
+        margin: auto auto 10 auto;
+        color: #fff;
+
+    }
+
+    .cookies-box .cookies-title h1 {
+        font-size: 20px;
+        font-family: "Space Mono", monospace;
+        letter-spacing: 0;
+        margin: auto auto auto 0;
+    }
+
+    .cookies-title i {
+        font-size: 18px;
+        margin: auto 10 auto 0;
+    }
+
+    .cookies-box .text {
+        display: flex;
+        flex-direction: row;
+        margin: auto auto 10 auto;
+        color: #fff;
+
+    }
+
+    .cookies-box .text h2 {
+        color: #fff;
+        font-size: 14px;
+        font-family: "Fjalla One", sans-serif;
+        text-decoration: none;
+        font-weight: normal;
+        letter-spacing: 0.5;
+        margin: auto 0 auto 0;
+
+    }
+
+    .cookies-box .text a {
+        color: aqua;
+        font-size: 14px;
+        font-family: "Space Mono", monospace;
+        margin: auto auto auto 15;
+
+    }
+
+    .cookies-box .buttons {
+        display: flex;
+        flex-direction: row;
+        margin: 15 auto 0 auto;
+
+    }
+
+    .cookies-box .buttons #declineBtn,
+    .cookies-box .buttons #acceptBtn {
+        height: 40px;
+        width: 150px;
+        font-size: 15px;
+        background-color: #fff;
+        border-radius: 5px 5px 5px 5px;
+        font-family: "Space Mono", monospace;
+        text-decoration: none;
+        font-weight: bold;
+        letter-spacing: 1;
+        margin: auto;
+    }
+
+    .buttons #acceptBtn:hover {
+        background-color: #4070f4;
+        color: #fff;
+
+    }
+
+    .buttons #declineBtn:hover {
+        background-color: #4070f4;
+    }
+
+
+    #declineBtn:hover {
+        background-color: #4070f4;
+        color: #fff;
+    }
+
+
+    #contact {
+        display: none;
+        /* Inicialmente invisível */
+        opacity: 0;
+        /* Torna a div invisível */
+        transform: translateY(100%);
+        /* Coloca a div fora da tela, abaixo */
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        /* Animação suave de opacidade e movimento */
+    }
+
+    #contact.show {
+        display: block;
+
+        /* Torna a div visível */
+        opacity: 1;
+        /* Torna a div visível */
+        transform: translateY(0);
+        /* Move a div para a posição original (de baixo para cima) */
+    }
+
+
+    .contact {
+        height: auto;
+        width: 100%;
+        margin: 100 auto auto auto;
+        justify-content: center;
+        justify-items: center;
+        display: none;
+        position: fixed;
+        top: 0px;
+
+    }
+
+    .contact-window {
+        height: 100%;
+        width: 90%;
+        background-color: rgb(17, 16, 31);
+        margin: auto auto auto auto;
+        justify-content: center;
+        justify-items: center;
+        display: flex;
+        flex-direction: column;
+        border: solid 5px #fff;
+        border-radius: 25px 25px 25px 25px;
+
+
+    }
+
+    .contact-header {
+        height: 100%;
+        width: 100%;
+        justify-content: space-between;
+        justify-items: center;
+        align-items: center;
+        align-content: center;
+        display: flex;
+
+        margin: 10 auto 10 auto;
+    }
+
+    .contact-form {
+        height: 75%;
+        width: 100%;
+        margin: 0 auto 0 auto;
+        justify-content: center;
+        justify-items: center;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .contact-form form {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto auto auto;
+        width: 80%;
+    }
+
+    .contact-form label {
+        color: #fff;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-weight: bold;
+        font-size: 22px;
+        width: 90%;
+
+    }
+
+    .contact-form input {
+        height: 50px;
+        width: 100%;
+        font-weight: bold;
+        margin: 3 auto 10 auto;
+        font-size: 16px;
+    }
+
+    .contact-form textarea {
+        font-size: 16px;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        height: 70px;
+        padding: 10px;
+        box-sizing: border-box;
+        resize: none;
+    }
+
+
+    .contact-form button {
+        all: unset;
+        width: 250px;
+        height: 50px;
+        background-color: #ff0042;
+        color: #fff;
+        text-align: center;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        border-radius: 10px 10px 10px 10px;
+        font-weight: bold;
+        font-size: 20px;
+        cursor: pointer;
+        margin: 20 auto 20 auto;
+
+    }
+
+
+    .contact .close {
+        width: 20px;
+        height: auto;
+        margin: 10 30 auto auto;
+        text-align: center;
+
+    }
+
+    .contact .space {
+        width: 20px;
+        height: auto;
+        margin: auto auto auto 30;
+
+    }
+
+    .contact .title {
+        width: auto;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+
+
+    }
+
+
+
+    .contact .title1 {
+        width: 100%;
+        height: auto;
+        margin: 0 auto 0 auto;
+        text-align: center;
+
+
+    }
+
+    .contact .title2 {
+        width: 100%;
+        height: auto;
+        margin: 0 auto 0 auto;
+        text-align: center;
+
+
+    }
+
+    .contact a {
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+    }
+
+    .contact .title i {
+        color: #fff;
+        font-size: 22px;
+    }
+
+    .contact .close i {
+        color: #fff;
+        font-size: 22px;
+        border: solid 5px;
+        border-radius: 100%;
+        border-style: solid;
+        padding: 5px;
+        cursor: pointer;
+        height: 32px;
+        width: 32px;
+        display: flex;
+        /* Usado para centralizar o ícone */
+        align-items: center;
+        /* Centraliza verticalmente */
+        justify-content: center;
+        /* Centraliza horizontalmente */
+    }
+
+    #auth-modal {
+        display: none;
+        opacity: 0;
+        transform: translateY(100%);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    #auth-modal.show {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .auth-modal {
+        height: auto;
+        width: 100%;
+        margin: 100 auto auto auto;
+        justify-content: center;
+        justify-items: center;
+        display: none;
+        position: fixed;
+        top: 0px;
+    }
+
+    .auth-window {
+        height: auto;
+        width: 90%;
+        background-color: rgb(17, 16, 31);
+        margin: auto auto auto auto;
+        justify-content: center;
+        justify-items: center;
+        display: flex;
+        flex-direction: column;
+        border: solid 5px #fff;
+        border-radius: 25px 25px 25px 25px;
+    }
+
+    .auth-header {
+        height: 100%;
+        width: 100%;
+        justify-content: space-between;
+        justify-items: center;
+        align-items: center;
+        align-content: center;
+        display: flex;
+        margin: 10 auto 10 auto;
+    }
+
+    .auth-content {
+        width: 100%;
+        margin: 0 auto 25px auto;
+        justify-content: center;
+        justify-items: center;
+        display: flex;
+        padding: 0 30px 20px 30px;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .auth-modal .close {
+        width: 20px;
+        height: auto;
+        margin: 10 30 auto auto;
+        text-align: center;
+    }
+
+    .auth-modal .space {
+        width: 20px;
+        height: auto;
+        margin: auto auto auto 30;
+    }
+
+    .auth-modal .title {
+        width: auto;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .auth-modal .title1 {
+        width: 100%;
+        height: auto;
+        margin: 0 auto 0 auto;
+        text-align: center;
+    }
+
+    .auth-modal .title2 {
+        width: 100%;
+        height: auto;
+        margin: 0 auto 0 auto;
+        text-align: center;
+    }
+
+    .auth-content i {
+        width: 100%;
+        height: auto;
+        margin: 20 auto 0 auto;
+        text-align: center;
+        font-size: 30px;
+        color: #fff;
+    }
+
+    .auth-modal a {
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+
+    .auth-modal .title i {
+        color: #fff;
+        font-size: 22px;
+    }
+
+    .auth-modal .close i {
+        color: #fff;
+        font-size: 22px;
+        border: solid 5px;
+        border-radius: 100%;
+        border-style: solid;
+        padding: 5px;
+        cursor: pointer;
+        height: 32px;
+        width: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    /*Paginas "p/..." */
+
+    .p-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        margin: 15 auto auto auto;
+    }
+
+    .p-container .part1 {
+        margin: auto auto auto auto;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .p-container .gallery {
+        width: 100%;
+        height: 100;
+        margin: 10 auto 10 auto;
+        background-color: white;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);        
+
+    }
+
+    .p-container .main_photo {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        background-image: url("main_photo.png");
+        background-size: cover;
+        border-radius: 10px;
+        margin: 0 auto auto auto;
+    }
+
+    .p-container .part2 {
+        width: 100%;
+        aspect-ratio: 5 / 5;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);        
+
+    }
+
+    .p-container .info {
+        width: 80%;
+        height: auto;
+        margin: 25 auto 15 30;
+    }
+
+    .p-container .info a {
+        text-decoration: none;
+        color: black;
+        text-transform: uppercase;
+        margin: auto;
+        height: 100%;
+        width: 100%;
+    }
+
+    .p-container .product_name {
+        width: 100%;
+        height: auto;
+        margin: auto auto 15 auto;
+    }
+
+    .p-container .product_name a {
+        text-decoration: none;
+        color: black;
+        text-transform: none;
+        margin: auto;
+        height: auto;
+        width: 100%;
+        font-size: 20;
+        font-weight: bold;
+        
+    }
+
+    .p-container .product_description {
+
+        width: 100%;
+        height: auto;
+        margin: auto auto 15 auto;
+
+    }
+
+    .p-container .product_description a {
+        text-decoration: none;
+        color: black;
+        text-transform: none;
+        margin: auto;
+        height: auto;
+        width: 100%;
+        font-size: 14;
+        font-weight: normal;
+        letter-spacing: 1;
+        font-family: Muli, sans-serif;
+
+    }
+
+
+
+    .p-container .gallery ul {
+        list-style: none;
+        height: 90%;
+        width: 90%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: left;
+        margin: auto;
+
+    }
+
+    .p-container .gallery li {
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        border-radius: 10px;
+        background-size: cover;
+        align-items: center;
+        justify-content: space-around;
+        background-position: center;
+        margin: 0 20 0 0;
+
+    }
+
+
+
+.options {
+        width: 100%;
+        height: auto;
+        margin: auto auto auto auto;
+        Display: flex;
+        flex-direction: column;
+    }
+
+.options .options_title {
+        width: 100%;
+        height: auto;
+        margin: auto auto 10 0;
+        color: black;
+        text-transform: none;
+        text-decoration: none;
+
+    }
+
+.options .options_title a {
+        width: 100%;
+        height: auto;
+        margin: auto auto 10 0;
+        color: black;
+        text-transform: none;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 18;
+
+    }
+
+.options .options_list a {
+        text-decoration: none;
+        color: #fff;
+        text-transform: none;
+        margin: auto;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: left;
+        font-size: 18;
+        font-weight: normal;
+    }
+
+
+.options .options_list ul {
+        list-style: none;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        margin: auto auto auto 0;
+    }
+
+.options .options_list li {
+
+        width: auto;
+        height: 45px;
+        background-color: #494a7e;
+        margin: auto;
+        border-style: solid;
+        border-color: black;
+        border-width: 0;
+        border-radius: 15px;
+        margin: 0 5 5 0;
+    }
+
+.options .options_list li.selected {
+        border-width: 4px;
+    }
+
+.options .options_list li a {
+        text-decoration: none;
+        color: #fff;
+        text-transform: none;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        font-size: 16;
+        font-weight: normal;
+        text-shadow: 1px 2px 1px rgb(0, 0, 0);
+        padding: 0 10px;
+
+    }
+
+    .p-container .product_price {
+        width: 100%;
+        height: 30;
+        margin: 20 auto 15 0;
+    }
+
+    .p-container .product_price a {
+        text-decoration: none;
+        color: black;
+        text-transform: none;
+        margin: auto;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: left;
+        font-size: 18;
+        font-weight: normal;
+    }
+
+    .p-container .buy_button {
+        width: 140;
+        height: 40;
+        margin: 0 auto 30 30;
+        border-radius: 7px;
+        border-style: solid;
+        border-color: black;
+        border-width: 1;
+        background-color: rgb(227, 109, 69);
+    }
+
+    .p-container .buy_button a {
+        text-decoration: none;
+        color: #ffffff;
+        text-transform: none;
+        margin: auto;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        font-size: 18;
+        word-spacing: 0;
+        letter-spacing: 1;
+        font-family: "Space Mono", monospace;
+    }
+
+
+
+}
