@@ -535,6 +535,144 @@ body {
         transform: translateY(0);
     }
 
+    #account-modal {
+        display: none;
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    #account-modal.show {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .account-modal {
+        height: auto;
+        width: 1000;
+        margin: auto auto auto auto;
+        justify-content: center;
+        justify-items: center;
+        position: fixed;
+        top: 80px;
+        right: 0px;
+    }
+
+    .account-window {
+        height: auto;
+        width: 560px;
+        background-color: rgb(17, 16, 31);
+        margin: auto auto auto auto;
+        justify-content: center;
+        justify-items: center;
+        display: flex;
+        flex-direction: column;
+        border: solid 5px #fff;
+        border-radius: 25px 25px 25px 25px;
+    }
+
+    .account-header {
+        height: 80px;
+        width: 100%;
+        justify-content: space-between;
+        justify-items: center;
+        align-items: center;
+        align-content: center;
+        display: flex;
+        margin: 10 auto 0 auto;
+    }
+
+    .account-content {
+        width: 100%;
+        margin: 0 auto 30px auto;
+        justify-content: center;
+        justify-items: center;
+        display: flex;
+        padding: 0 50px 20px 50px;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .account-modal .close {
+        width: 20px;
+        aspect-ratio: 1/1;
+        margin: 10 50 auto auto;
+        text-align: center;
+    }
+
+    .account-modal .space {
+        width: 20px;
+        height: auto;
+        margin: auto auto auto 50;
+    }
+
+    .account-modal .title {
+        width: auto;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .account-modal .title1 {
+        width: 100%;
+        height: auto;
+        margin: 0 auto 0 auto;
+        text-align: center;
+    }
+
+    .account-modal .title2 {
+        width: 100%;
+        height: auto;
+        margin: 0 auto 0 auto;
+        text-align: center;
+    }
+
+    .account-modal .title i {
+        color: #fff;
+        font-size: 22px;
+    }
+
+    .account-modal .close i {
+        color: #fff;
+        font-size: 22px;
+        border: solid 5px #fff;
+        border-radius: 50%;
+        padding: 5px;
+        cursor: pointer;
+        height: 42px;
+        width: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .account-modal a {
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+
+    #account-login-button {
+        border: solid 3px #fff;
+        border-radius: 999px;
+        background: transparent;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 700;
+        padding: 12px 28px;
+        cursor: pointer;
+        transition: transform 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    #account-login-button:hover,
+    #account-login-button:focus {
+        color: #fbbc05;
+        border-color: #fbbc05;
+        transform: scale(1.03);
+        outline: none;
+    }
+
     .auth-modal {
         height: auto;
         width: 1000;
@@ -1621,6 +1759,132 @@ body {
         display: block;
         opacity: 1;
         transform: translateY(0);
+    }
+
+    #account-modal {
+        display: none;
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    #account-modal.show {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .account-modal {
+        height: auto;
+        width: 100%;
+        margin: 0 auto auto auto;
+        justify-content: center;
+        justify-items: center;
+        display: none;
+        position: fixed;
+        top: 80px;
+    }
+
+    .account-window {
+        height: auto;
+        width: 82%;
+        background-color: rgb(17, 16, 31);
+        margin: auto auto auto auto;
+        justify-content: center;
+        justify-items: center;
+        display: flex;
+        flex-direction: column;
+        border: solid 5px #fff;
+        border-radius: 25px 25px 25px 25px;
+    }
+
+    .account-header {
+        height: 100%;
+        width: 100%;
+        justify-content: space-between;
+        justify-items: center;
+        align-items: center;
+        align-content: center;
+        display: flex;
+        margin: 10 auto 10 auto;
+    }
+
+    .account-content {
+        width: 100%;
+        margin: 0 auto 25px auto;
+        justify-content: center;
+        justify-items: center;
+        display: flex;
+        padding: 0 30px 20px 30px;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .account-modal .close {
+        width: 20px;
+        height: auto;
+        margin: 10 30 auto auto;
+        text-align: center;
+    }
+
+    .account-modal .space {
+        width: 20px;
+        height: auto;
+        margin: auto auto auto 30;
+    }
+
+    .account-modal .title {
+        width: auto;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .account-modal .title1 {
+        width: 100%;
+        height: auto;
+        margin: 0 auto 0 auto;
+        text-align: center;
+    }
+
+    .account-modal .title2 {
+        width: 100%;
+        height: auto;
+        margin: 0 auto 0 auto;
+        text-align: center;
+    }
+
+    .account-modal a {
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+
+    .account-modal .title i {
+        color: #fff;
+        font-size: 22px;
+    }
+
+    .account-modal .close i {
+        color: #fff;
+        font-size: 22px;
+        border: solid 5px;
+        border-radius: 100%;
+        border-style: solid;
+        padding: 5px;
+        cursor: pointer;
+        height: 32px;
+    }
+
+    #account-login-button {
+        border: solid 3px #fff;
+        border-radius: 999px;
+        background: transparent;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 700;
+        padding: 10px 22px;
+        cursor: pointer;
     }
 
     .auth-modal {

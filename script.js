@@ -187,10 +187,33 @@ function isUserLoggedIn() {
   return localStorage.getItem(authVisualStateKey) === 'true';
 }
 
+function openLoginEntryModal() {
+  var accountModal = document.getElementById("account-modal");
+  var contactModal = document.getElementById("contact");
+  var authModal = document.getElementById("auth-modal");
+
+  if (accountModal) {
+    if (contactModal && contactModal.classList.contains("show")) {
+      openExclusiveSlidingWindow(accountModal, contactModal);
+      return;
+    }
+
+    if (authModal && authModal.classList.contains("show")) {
+      openExclusiveSlidingWindow(accountModal, authModal);
+      return;
+    }
+
+    toggleSlidingWindow(accountModal);
+    return;
+  }
+
+  openExclusiveSlidingWindow(authModal, contactModal);
+}
+
 function openAuthModal() {
   var authModal = document.getElementById("auth-modal");
-  var contactModal = document.getElementById("contact");
-  openExclusiveSlidingWindow(authModal, contactModal);
+  var accountModal = document.getElementById("account-modal");
+  openExclusiveSlidingWindow(authModal, accountModal);
 }
 
 function handleContactClick() {
@@ -198,7 +221,7 @@ function handleContactClick() {
   var authModal = document.getElementById("auth-modal");
 
   if (!isUserLoggedIn()) {
-    openExclusiveSlidingWindow(authModal, contactModal);
+    openLoginEntryModal();
     return;
   }
 
@@ -227,6 +250,21 @@ if (contactForm) {
     }
 
     event.preventDefault();
+    openLoginEntryModal();
+  });
+}
+
+const accountCloseButton = document.getElementById("account-close");
+if (accountCloseButton) {
+  accountCloseButton.addEventListener("click", function() {
+    var accountModal = document.getElementById("account-modal");
+    hideSlidingWindow(accountModal);
+  });
+}
+
+const accountLoginButton = document.getElementById("account-login-button");
+if (accountLoginButton) {
+  accountLoginButton.addEventListener("click", function() {
     openAuthModal();
   });
 }
@@ -241,7 +279,7 @@ if (contactCloseButton) {
 
 document.querySelectorAll(".nav-login").forEach(function(button) {
   button.addEventListener("click", function() {
-    openAuthModal();
+    openLoginEntryModal();
   });
 });
 
