@@ -1,6 +1,33 @@
 (function () {
   var fragments = [];
 
+  if (!document.querySelector(".navbar")) {
+    document.body.insertAdjacentHTML(
+      "afterbegin",
+      '<div class="navbar">' +
+        '<div class="mypage">' +
+          '<div class="menu">' +
+            '<ul>' +
+              '<li><a href="/home.html">Home</a></li>' +
+              '<li id="contactme"><a href="#">Contact</a></li>' +
+              '<li><a href="aboutus.html">About us</a></li>' +
+            '</ul>' +
+          '</div>' +
+          '<div class="menu2" id="more">' +
+            '<i class="material-icons" style="color:white">menu</i>' +
+          '</div>' +
+          '<div class="logo">' +
+            '<a href="/home.html">VW Golf</a>' +
+          '</div>' +
+          '<div class="more">' +
+            '<div class="nav-login"><a>Login</a></div>' +
+            '<div class="nav-logout" style="display:none"><a>Logout</a></div>' +
+          '</div>' +
+        '</div>' +
+      '</div>'
+    );
+  }
+
   if (!document.getElementById("account-modal")) {
     fragments.push(
       '<div class="account-modal" id="account-modal">' +
