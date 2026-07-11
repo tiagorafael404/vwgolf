@@ -134,15 +134,31 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-document.getElementById("more").addEventListener("click", function() {
+function toggleMobileMenuContent() {
   var divmenu = document.getElementById("menu");
-  
-  if (divmenu.style.display === "block") {
-    divmenu.style.display = "none";  // Mostrar a div
-  } else {
-    divmenu.style.display = "block";   // Esconder a div
+  if (!divmenu) {
+    return;
   }
-});
+
+  var contentWrapper = divmenu.closest(".content");
+  var isOpen = divmenu.style.display === "block";
+
+  if (contentWrapper) {
+    contentWrapper.style.display = isOpen ? "none" : "block";
+  }
+
+  divmenu.style.display = isOpen ? "none" : "block";
+}
+
+var desktopMoreButton = document.getElementById("more");
+if (desktopMoreButton) {
+  desktopMoreButton.addEventListener("click", toggleMobileMenuContent);
+}
+
+var phoneMoreButton = document.querySelector(".navbar-phone .more");
+if (phoneMoreButton) {
+  phoneMoreButton.addEventListener("click", toggleMobileMenuContent);
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     const divsFodass = document.querySelectorAll(".menubutton"); // Seleciona todas as divs com a classe 'fodass'
@@ -150,11 +166,18 @@ document.addEventListener("DOMContentLoaded", () => {
     divsFodass.forEach(div => {
         div.addEventListener("click", function () {
             const divmenu = document.getElementById("menu");
+            const contentWrapper = divmenu ? divmenu.closest(".content") : null;
 
             if (divmenu.style.display === "block") {
                 divmenu.style.display = "none"; // Esconde a div
+              if (contentWrapper) {
+                contentWrapper.style.display = "none";
+              }
             } else {
                 divmenu.style.display = "block"; // Mostra a div
+              if (contentWrapper) {
+                contentWrapper.style.display = "block";
+              }
             }
         });
     });

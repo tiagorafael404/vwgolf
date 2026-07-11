@@ -1308,27 +1308,16 @@ body {
     .navbar-phone{
         display: flex;
         background-color:#494a7e;
-;
-        height: 50;
+        height: 50px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
     }
 
-    .navbar-phone ul{
-        width: 100%;
-        height: 100%;
-        margin: auto;
-        display: flex;
 
-    }
 
-    .navbar-phone ul li{
-        margin: auto;
-        display: flex;
-        color: white;
-        margin: auto;
-    
-    }
 
-   .navbar-phone ul li a, .navbar-phone ul li i{
+   .navbar-phone a, .navbar-phone i{
         margin: auto;
         display: flex;
         margin: auto;
@@ -1338,12 +1327,40 @@ body {
         text-decoration: none;
     }
 
-    .navbar-phone .more{
+    .navbar-phone .nav1{
  
         margin: auto 0 auto 15;
   
     }
 
+    .navbar-phone .nav2{
+        margin: auto auto auto 15;
+    }
+
+    .navbar-phone .nav3{
+        margin: auto 0 auto auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .navbar-phone .nav3 i{
+        font-size: 30px;
+    }
+
+    .navbar-phone .nav3 a{
+        font-size: 20px;
+        font-weight: normal;
+    }
+
+
+    .navbar-phone .nav4{
+        margin: auto 15 auto 15;
+    }
+
+    .navbar-phone .nav4 i{
+        font-size: 35;
+    }
 
     .content {
         display: none;
