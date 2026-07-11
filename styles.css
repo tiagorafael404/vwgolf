@@ -698,25 +698,29 @@ body {
     
 
     .auth-modal {
-        height: auto;
-        width: 1000;
-        margin: auto auto auto auto;
+        height: 100vh;
+        width: 100%;
+        margin: 0;
         justify-content: center;
         justify-items: center;
         position: fixed;
-        bottom: 0px;
-        right: 0px;
+        top: 0;
+        left: 0;
     }
 
     .auth-window {
         height: auto;
         width: 740px;
         background-color: rgb(17, 16, 31);
-        margin: auto auto auto auto;
+        margin: 0;
         justify-content: center;
         justify-items: center;
         display: flex;
         flex-direction: column;
+        position: fixed;
+        top: 46%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         border: solid 5px #fff;
         border-radius: 25px 25px 25px 25px;
     }
@@ -803,20 +807,18 @@ body {
         justify-content: center;
     }
 
-    .auth-content i {
-        margin: 20 auto 20 auto;
-        color: #fff;
-        font-size: 42px;
-    }
-
     #google-auth-button {
+        margin: 20px auto 20px auto;
+        width: 42px;
+        height: 42px;
+        display: block;
+        object-fit: contain;
         cursor: pointer;
         transition: transform 0.2s ease, color 0.2s ease;
     }
 
     #google-auth-button:hover,
     #google-auth-button:focus {
-        color: #fbbc05;
         transform: scale(1.08);
         outline: none;
     }
@@ -1912,25 +1914,30 @@ body {
     }
 
     .auth-modal {
-        height: auto;
+        height: 100vh;
         width: 100%;
-        margin: 100 auto auto auto;
+        margin: 0;
         justify-content: center;
         justify-items: center;
         display: none;
         position: fixed;
-        top: 0px;
+        top: 0;
+        left: 0;
     }
 
     .auth-window {
         height: auto;
         width: 90%;
         background-color: rgb(17, 16, 31);
-        margin: auto auto auto auto;
+        margin: 0;
         justify-content: center;
         justify-items: center;
         display: flex;
         flex-direction: column;
+        position: fixed;
+        top: 46%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         border: solid 5px #fff;
         border-radius: 25px 25px 25px 25px;
     }
@@ -1991,13 +1998,12 @@ body {
         text-align: center;
     }
 
-    .auth-content i {
-        width: 100%;
-        height: auto;
-        margin: 20 auto 0 auto;
-        text-align: center;
-        font-size: 30px;
-        color: #fff;
+    #google-auth-button {
+        width: 40px;
+        height: 40px;
+        margin: 20px auto 0 auto;
+        display: block;
+        object-fit: contain;
     }
 
     .auth-modal a {
