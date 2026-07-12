@@ -59,7 +59,7 @@ let firebaseAuthInstance = null;
 let currentAuthUser = null;
 
 function setAccountNavLabel(loggedIn) {
-  document.querySelectorAll('.nav-login a').forEach(function(link) {
+  document.querySelectorAll('.nav-login a, .navbar-phone .nav3 .name a').forEach(function(link) {
     link.textContent = loggedIn ? 'Account' : 'Sign in';
   });
 }
@@ -158,6 +158,22 @@ if (desktopMoreButton) {
 var phoneMoreButton = document.querySelector(".navbar-phone .more");
 if (phoneMoreButton) {
   phoneMoreButton.addEventListener("click", toggleMobileMenuContent);
+}
+
+var phoneNav1Button = document.querySelector(".navbar-phone .nav1");
+if (phoneNav1Button) {
+  phoneNav1Button.addEventListener("click", function(event) {
+    event.preventDefault();
+    toggleMobileMenuContent();
+  });
+}
+
+var phoneNav3Button = document.querySelector(".navbar-phone .nav3");
+if (phoneNav3Button) {
+  phoneNav3Button.addEventListener("click", function(event) {
+    event.preventDefault();
+    openLoginEntryModal();
+  });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
