@@ -1424,6 +1424,24 @@
         }
       ]
     }
-    }
+    },
+
+
+
+  {
+    "id": 55,
+    "category": "exterior door handles",
+    "ali": "https://pt.aliexpress.com/item/1005006039508318.html",
+    "name": "Golf6: Window Switch Stickers",
+    "description": "This is a set of window switch stickers for VW Golf 6. They are designed to fit perfectly on your window switches and provide a stylish look.",
+    "price": "6.99€",
+    "image": "golf3/interior trim/2/1.jpg",
+    "image2": "golf3/interior trim/2/2.jpeg",
+    "image3": "golf3/interior trim/2/3.jpeg",
+    "image4": "golf3/interior trim/2/4.jpg",
+
+    "golf": 6,
+    "url": "item.html?item=55",
+    "buy": "payment.html?item=55"
     
 ]
