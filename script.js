@@ -64,27 +64,10 @@ function setAccountNavLabel(loggedIn) {
   });
 }
 
-function updateAccountActionButton(loggedIn) {
-  const accountLoginButton = document.getElementById('account-login-button');
-  if (!accountLoginButton) {
-    return;
-  }
-
-  accountLoginButton.textContent = loggedIn ? 'Logout' : 'Login with Google';
-}
-
-function updateAccountCartVisibility(loggedIn) {
-  document.querySelectorAll('.account-cart').forEach(function(cart) {
-    cart.style.display = loggedIn ? 'flex' : 'none';
-  });
-}
-
 function applyStoredAuthUiState() {
   const loggedIn = localStorage.getItem(authVisualStateKey) === 'true';
 
   setAccountNavLabel(loggedIn);
-  updateAccountActionButton(loggedIn);
-  updateAccountCartVisibility(loggedIn);
 
   document.querySelectorAll('.nav-login').forEach(function(button) {
     button.style.display = 'block';
@@ -328,21 +311,6 @@ if (accountCloseButton) {
   });
 }
 
-const accountLoginButton = document.getElementById("account-login-button");
-if (accountLoginButton) {
-  accountLoginButton.addEventListener("click", function() {
-    if (currentAuthUser && firebaseAuthInstance) {
-      updateAuthUi(null);
-      firebaseAuthInstance.signOut().catch(function(error) {
-        console.error("Erro ao terminar sessão:", error);
-      });
-      return;
-    }
-
-    openAuthModal();
-  });
-}
-
 const contactCloseButton = document.getElementById("close");
 if (contactCloseButton) {
   contactCloseButton.addEventListener("click", function() {
@@ -369,8 +337,6 @@ function updateAuthUi(user) {
   currentAuthUser = user || null;
   localStorage.setItem(authVisualStateKey, user ? 'true' : 'false');
   setAccountNavLabel(Boolean(user));
-  updateAccountActionButton(Boolean(user));
-  updateAccountCartVisibility(Boolean(user));
 
   document.querySelectorAll(".nav-login").forEach(function(button) {
     button.style.display = "block";
