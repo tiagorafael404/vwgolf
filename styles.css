@@ -1351,6 +1351,8 @@ body {
     .navbar-phone .nav3 a{
         font-size: 20px;
         font-weight: normal;
+        margin: auto auto auto 5;
+
     }
 
 
