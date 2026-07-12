@@ -320,8 +320,15 @@ if (contactCloseButton) {
 }
 
 document.querySelectorAll(".nav-login").forEach(function(button) {
-  button.addEventListener("click", function() {
-    openLoginEntryModal();
+  button.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    if (isUserLoggedIn()) {
+      openLoginEntryModal();
+      return;
+    }
+
+    openAuthModal();
   });
 });
 
