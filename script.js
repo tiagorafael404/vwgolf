@@ -311,6 +311,23 @@ if (accountCloseButton) {
   });
 }
 
+document.querySelectorAll(".account-login").forEach(function(button) {
+  button.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    if (firebaseAuthInstance) {
+      firebaseAuthInstance.signOut().catch(function(error) {
+        console.error("Erro ao terminar sessão:", error);
+      });
+    } else {
+      updateAuthUi(null);
+    }
+
+    var accountModal = document.getElementById("account-modal");
+    hideSlidingWindow(accountModal);
+  });
+});
+
 const contactCloseButton = document.getElementById("close");
 if (contactCloseButton) {
   contactCloseButton.addEventListener("click", function() {
