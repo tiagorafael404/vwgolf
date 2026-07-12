@@ -665,8 +665,9 @@ body {
         border: solid 3px #fff;
         background: transparent;
         color: #fff;
-        font-size: 16px;
-        font-weight: 700;
+      font-size: 20px;
+      font-weight: normal;
+      line-height: 1;
         cursor: pointer;
         margin: 0 auto 20px auto;
         width: 200px;
@@ -675,6 +676,7 @@ body {
         align-items: center;
         justify-content: center;
         border-radius: 10px;
+      text-align: center;
 
     }
 
@@ -691,13 +693,14 @@ body {
    .account-cart {
         margin: 10px auto 10px auto;
         color: #fff;
-        font-size: 42px;
         border: solid 2px #fff;
         border-radius: 10px;
         width: 200px;
         height: 40px;
         text-decoration: none;
         display: flex;
+    align-items: center;
+    justify-content: center;
 
     }
 
@@ -707,6 +710,14 @@ body {
         font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
         color: #fff;
         font-size: 20px;
+    font-weight: normal;
+    line-height: 1;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 
 }
 
@@ -1365,10 +1376,59 @@ body {
     }
 
     .content {
-        display: none;
+        position: relative;
     }
 
 
+    .menu3 {
+        display: none;
+        width: 100%;
+        height: 300;
+        background-color: #f6f6f6;
+        position: absolute;
+        border-radius: 0 0 50px 50px;
+        border-bottom: 2px solid #000000;
+
+    }
+
+    .menu3 ul li a {
+        color: rgb(0, 0, 0);
+        font-size: 20;
+        text-decoration: none;
+        text-transform: none;
+        width: 150px;
+        height: 100%;
+        display: flex;
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        justify-items: center;
+        margin: auto;
+    }
+
+    .menu3 ul {
+        height: 50%;
+        width: 70%;
+        margin: 30 auto auto auto;
+
+    }
+
+    .menu3 li {
+        margin: auto auto 20 auto;
+        text-align: center;
+        border-bottom: 2px solid #000000;
+        height: 40px;
+        text-decoration: none;
+        text-transform: none;
+        list-style: none;
+        text-align: center;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+        justify-items: center;
+
+    }
 
 
     .cookies-box {
@@ -1708,9 +1768,9 @@ body {
 
     .account-window {
         height: auto;
-        width: 82%;
+        width: 90%;
         background-color: rgb(17, 16, 31);
-        margin: auto 8px auto auto;
+        margin: auto auto auto auto;
         justify-content: center;
         justify-items: center;
         display: flex;
@@ -1720,38 +1780,38 @@ body {
     }
 
     .account-header {
-        height: 100%;
+        height: 80px;
         width: 100%;
         justify-content: space-between;
         justify-items: center;
         align-items: center;
         align-content: center;
         display: flex;
-        margin: 10 auto 10 auto;
+        margin: 10 auto 0 auto;
     }
 
     .account-content {
         width: 100%;
-        margin: 0 auto 25px auto;
         justify-content: center;
         justify-items: center;
         display: flex;
-        padding: 0 30px 20px 30px;
+        flex-direction: column;
+        align-items: center;
         box-sizing: border-box;
         text-align: center;
     }
 
     .account-modal .close {
         width: 20px;
-        height: auto;
-        margin: 10 30 auto auto;
+        aspect-ratio: 1/1;
+        margin: 10 50 auto auto;
         text-align: center;
     }
 
     .account-modal .space {
         width: 20px;
         height: auto;
-        margin: auto auto auto 30;
+        margin: auto auto auto 50px;
     }
 
     .account-modal .title {
@@ -1759,6 +1819,7 @@ body {
         height: auto;
         display: flex;
         flex-direction: column;
+        
     }
 
     .account-modal .title1 {
@@ -1775,13 +1836,6 @@ body {
         text-align: center;
     }
 
-    .account-modal a {
-        color: #fff;
-        font-size: 20px;
-        font-weight: bold;
-        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    }
-
     .account-modal .title i {
         color: #fff;
         font-size: 22px;
@@ -1790,13 +1844,89 @@ body {
     .account-modal .close i {
         color: #fff;
         font-size: 22px;
-        border: solid 5px;
-        border-radius: 100%;
-        border-style: solid;
+        border: solid 5px #fff;
+        border-radius: 50%;
         padding: 5px;
         cursor: pointer;
-        height: 32px;
+        height: 42px;
+        width: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
+
+    .account-modal .title a {
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    }
+
+  .account-login {
+        border: solid 3px #fff;
+        background: transparent;
+        color: #fff;
+      font-size: 20px;
+        font-weight: 700;
+        cursor: pointer;
+        margin: 0 auto 20px auto;
+        width: 200px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 10px;
+        font-weight: normal;
+        line-height: 1;
+        text-align: center;
+
+    }
+
+  .account-login a{
+        margin: auto;
+        text-decoration: none;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        color: #fff;
+        font-size: 20px;
+        font-weight: normal;
+
+  }
+
+
+   .account-cart {
+        margin: 10px auto 10px auto;
+        color: #fff;
+        border: solid 2px #fff;
+        border-radius: 10px;
+        width: 200px;
+        height: 40px;
+        text-decoration: none;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+
+        
+
+    }
+
+    .account-cart a{
+        margin: auto;
+        text-decoration: none;
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        color: #fff;
+        font-size: 20px;
+        font-weight: normal;
+        line-height: 1;
+        align-items: center;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        text-transform: none;
+}
+
 
 
 

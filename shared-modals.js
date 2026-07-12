@@ -41,7 +41,7 @@
             '<div class="close"><i class="fa fa-close" id="account-close"></i></div>' +
           '</div>' +
           '<div class="account-content">' +
-            '<div class="account-cart"><a href="cart.html" id="account-cart-link">Cart</a></div>' +
+            '<div class="account-cart"><a href="cart.html" id="account-cart-link">Logout</a></div>' +
             '<div class="account-login" id="account-login-button">Login with Google</div>' +
           '</div>' +
         '</div>' +
