@@ -127,6 +127,23 @@
     openExclusiveSlidingWindow(authModal, accountModal);
   }
 
+  function forceOpenAuthModal() {
+    var authModal = document.getElementById("auth-modal");
+    var accountModal = document.getElementById("account-modal");
+
+    if (!authModal) {
+      return;
+    }
+
+    if (accountModal) {
+      hideSlidingWindow(accountModal);
+    }
+
+    if (!authModal.classList.contains("show")) {
+      showSlidingWindow(authModal);
+    }
+  }
+
   function handleContactClick() {
     var contactModal = document.getElementById("contact");
     var authModal = document.getElementById("auth-modal");
@@ -151,6 +168,17 @@
     document.querySelectorAll(".nav-logout").forEach(function (button) {
       button.style.display = "none";
     });
+  }
+
+  function performLogout() {
+    localStorage.setItem(authVisualStateKey, "false");
+    updateAuthUi(null);
+
+    if (firebaseAuthInstance) {
+      firebaseAuthInstance.signOut().catch(function (error) {
+        console.error("Erro ao terminar sessao:", error);
+      });
+    }
   }
 
   function hasConfiguredFirebase(config) {
@@ -226,21 +254,6 @@
       });
     }
 
-    document.querySelectorAll(".nav-logout").forEach(function (button) {
-      if (button.dataset.authBound) {
-        return;
-      }
-
-      button.dataset.authBound = "true";
-      button.addEventListener("click", function () {
-        localStorage.setItem(authVisualStateKey, "false");
-        updateAuthUi(null);
-
-        auth.signOut().catch(function (error) {
-          console.error("Erro ao terminar sessao:", error);
-        });
-      });
-    });
   }
 
   function bindNavigationHandlers() {
@@ -280,6 +293,11 @@
 
         if (divmenu) {
           divmenu.style.display = "none";
+        }
+
+        if (!isUserLoggedIn()) {
+          forceOpenAuthModal();
+          return;
         }
 
         openLoginEntryModal();
@@ -355,15 +373,7 @@
       button.dataset.authBound = "true";
       button.addEventListener("click", function (event) {
         event.preventDefault();
-
-        if (firebaseAuthInstance) {
-          firebaseAuthInstance.signOut().catch(function (error) {
-            console.error("Erro ao terminar sessao:", error);
-          });
-        } else {
-          updateAuthUi(null);
-        }
-
+        performLogout();
         hideSlidingWindow(document.getElementById("account-modal"));
       });
     });
