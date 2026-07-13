@@ -28,6 +28,21 @@
     );
   }
 
+  if (!document.querySelector(".navbar-phone")) {
+    document.body.insertAdjacentHTML(
+      "afterbegin",
+      '<div class="navbar-phone">' +
+        '<div class="nav1"><i class="material-icons">menu</i></div>' +
+        '<div class="nav2"><a href="/">Home</a></div>' +
+        '<div class="nav3">' +
+          '<div class="name"><a>Name</a></div>' +
+          '<div class="pic"><a><i class="bx bx-user"></i></a></div>' +
+        '</div>' +
+        '<div class="nav4"><a href="cart.html"><i class="bx bx-cart"></i></a></div>' +
+      '</div>'
+    );
+  }
+
 
 
   if (!document.getElementById("auth-modal")) {
@@ -95,6 +110,20 @@
               '<input type="hidden" name="_cc" value="x2scale@gmail.com">' +
             '</form>' +
           '</div>' +
+        '</div>' +
+      '</div>'
+    );
+  }
+
+  if (!document.querySelector(".content")) {
+    fragments.push(
+      '<div class="content">' +
+        '<div class="menu3" id="menu">' +
+          '<ul>' +
+            '<li><a href="/home.html" class="menubutton">Home</a></li>' +
+            '<li id="contactme-phone"><a class="menubutton">Contact</a></li>' +
+            '<li><a class="menubutton" href="aboutus.html">About us</a></li>' +
+          '</ul>' +
         '</div>' +
       '</div>'
     );
