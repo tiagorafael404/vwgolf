@@ -38,20 +38,6 @@
     );
   }
 
-  if (!document.querySelector(".navbar-phone")) {
-    document.body.insertAdjacentHTML(
-      "afterbegin",
-      '<div class="navbar-phone">' +
-        '<div class="nav1"><i class="material-icons">menu</i></div>' +
-        '<div class="nav2"><a href="/">Home</a></div>' +
-        '<div class="nav3">' +
-          '<div class="name"><a>' + accountLabel + '</a></div>' +
-          '<div class="pic"><a><i class="bx bx-user"></i></a></div>' +
-        '</div>' +
-        '<div class="nav4"><a href="cart.html"><i class="bx bx-cart"></i></a></div>' +
-      '</div>'
-    );
-  }
 
 
 
@@ -126,19 +112,7 @@
 
   }
 
-  if (!document.querySelector(".content")) {
-    fragments.push(
-      '<div class="content">' +
-        '<div class="menu3" id="menu">' +
-          '<ul>' +
-            '<li><a href="/home.html" class="menubutton">Home</a></li>' +
-            '<li id="contactme-phone"><a class="menubutton">Contact</a></li>' +
-            '<li><a class="menubutton" href="aboutus.html">About us</a></li>' +
-          '</ul>' +
-        '</div>' +
-      '</div>'
-    );
-  }
+  // moved .content/menu injection to shared-content.js to avoid duplication across pages
 
   if (fragments.length > 0) {
     document.body.insertAdjacentHTML("beforeend", fragments.join(""));
