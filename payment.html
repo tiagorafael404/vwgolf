@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pagamento - VW Golf</title>
   <link rel="stylesheet" href="payment.css">
-  <script 
-    src="https://www.paypal.com/sdk/js?client-id=BAAnmkoBodk5A1uTcyOiPjDO9M35yBgrtfYJmHzWBXoJ5MdeBk6L04O3MblcxfMTXTObCJOAvkcGwhVVX8&components=hosted-buttons&disable-funding=venmo&currency=EUR">
+  <script
+    src="https://www.paypal.com/sdk/js?client-id=BAA2_HM5zptp2B5qQ-aVEUivvuHLPDtoQPZBa5zxh0eB2WaqRHD7WP4w8DnOiH_I5kMvGlR5okLjI4roos&currency=EUR&intent=capture&components=buttons&enable-funding=card">
   </script>
 </head>
 
@@ -77,14 +77,14 @@
           <div class="section-title">Método de pagamento</div>
           <div class="payment-methods" role="group" aria-label="Métodos de pagamento">
             <label class="payment-option">
-              <input type="radio" name="payment-method" value="creditcard" checked>
-              <span class="radio-circle"></span>
-              <span class="option-text">Crédito/Débito</span>
-            </label>
-            <label class="payment-option">
-              <input type="radio" name="payment-method" value="paypal">
+              <input type="radio" name="payment-method" value="paypal" checked>
               <span class="radio-circle"></span>
               <span class="option-text">PayPal</span>
+            </label>
+            <label class="payment-option">
+              <input type="radio" name="payment-method" value="card">
+              <span class="radio-circle"></span>
+              <span class="option-text">Cartão de Débito/Crédito</span>
             </label>
           </div>
 
@@ -93,18 +93,13 @@
             <strong id="detailTotal">—</strong>
           </div>
 
-          <div id="creditcard-section" class="payment-section">
-            <button class="submit-button" type="submit">Continuar para pagamento</button>
-            <div class="notice">Depois de enviar os dados, você será redirecionado para o link de pagamento da Stripe configurado para este produto.</div>
+          <div id="paypal-section" class="payment-section">
+            <div id="paypal-buttons-container"></div>
           </div>
 
-          <div id="paypal-section" class="payment-section" hidden>
-            <div id="paypal-container-5KRXFY2C8KVXA"></div>
-            <script>
-              paypal.HostedButtons({
-                hostedButtonId: "5KRXFY2C8KVXA",
-              }).render("#paypal-container-5KRXFY2C8KVXA")
-            </script>
+          <div id="card-section" class="payment-section" hidden>
+            <div id="card-buttons-container"></div>
+            <div class="notice">O PayPal processa o pagamento com cartão de crédito/débito em um popup seguro.</div>
           </div>
 
           <div id="formError" class="form-error" hidden></div>

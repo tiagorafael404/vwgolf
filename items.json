@@ -1434,7 +1434,7 @@
     "ali": "https://pt.aliexpress.com/item/1005006039508318.html",
     "name": "Golf6: Window Switch Stickers",
     "description": "This is a set of window switch stickers for VW Golf 6. They are designed to fit perfectly on your window switches and provide a stylish look.",
-    "price": "6.99€",
+    "price": "3€",
     "image": "golf3/interior trim/2/1.jpg",
     "image2": "golf3/interior trim/2/2.jpeg",
     "image3": "golf3/interior trim/2/3.jpeg",
@@ -1442,6 +1442,6 @@
 
     "golf": 6,
     "url": "item.html?item=55",
-    "buy": "payment.html?item=55"
+    "buy": "https://buy.stripe.com/7sY6oG7jw6e826Kaqf5Ne1x"
   }
 ]

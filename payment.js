@@ -2,7 +2,7 @@
   payment.js
   - Carrega dados do item via items.json com base em payment.html?item=ID
   - Renderiza imagens, nome, descrição, preço, opções e total
-  - Atualiza o botão de pagamento para a URL definida no JSON (select.options[].url)
+  - Configura botões PayPal Checkout para PayPal e cartão
 */
 
 (function () {
@@ -17,8 +17,10 @@
     formError: document.getElementById('formError'),
 
     paymentForm: document.getElementById('paymentForm'),
-    creditcardSection: document.getElementById('creditcard-section'),
-    paypalSection: document.getElementById('paypal-section')
+    paypalSection: document.getElementById('paypal-section'),
+    cardSection: document.getElementById('card-section'),
+    paypalButtonsContainer: document.getElementById('paypal-buttons-container'),
+    cardButtonsContainer: document.getElementById('card-buttons-container')
   };
 
   const PARAM_KEY = 'item';
@@ -155,42 +157,117 @@
     els.detailTotal.textContent = Number.isFinite(n) ? formatEUR(n) : String(item.price || '—');
   }
 
-  function setupPaymentRedirection(item, optionsInfo) {
-    // Reaproveita o botão submit do form.
-    // Quando enviar, redireciona para a URL do Stripe configurada.
+  function getSelectedPaymentMethod() {
+    const selected = document.querySelector('input[name="payment-method"]:checked');
+    return selected ? selected.value : 'paypal';
+  }
 
-    const submitButton = els.paymentForm && els.paymentForm.querySelector('button[type="submit"]');
-    if (!els.paymentForm || !submitButton) return;
+  let cardButtonsRendered = false;
 
-    els.paymentForm.addEventListener('submit', (e) => {
-      e.preventDefault();
+  function setupPaymentSections() {
+    const updateSections = () => {
+      const method = getSelectedPaymentMethod();
+      if (els.paypalSection) els.paypalSection.hidden = method !== 'paypal';
+      if (els.cardSection) els.cardSection.hidden = method !== 'card';
+    };
 
-      const selectedOption = optionsInfo ? getSelectedOption(optionsInfo) : null;
-      const destinationUrl =
-        // prefer option URL se existir
-        (selectedOption && selectedOption.url) ||
-        // senão, se o item tiver buy (alguns itens têm)
-        (item && item.buy) ||
-        // fallback: se não tiver URL, não redireciona
-        null;
-
-      if (!destinationUrl) {
-        showError('URL de pagamento não encontrada para este item/opção.');
-        return;
-      }
-
-      // salva dados básicos no localStorage (opcional)
-      try {
-        const formData = new FormData(els.paymentForm);
-        const payload = Object.fromEntries(formData.entries());
-        payload.itemId = item.id;
-        if (selectedOption) payload.optionId = selectedOption.id;
-        localStorage.setItem('lastPaymentForm', JSON.stringify(payload));
-      } catch (_) {}
-
-      // Redirecionar
-      window.location.href = destinationUrl;
+    document.querySelectorAll('input[name="payment-method"]').forEach((input) => {
+      input.addEventListener('change', updateSections);
     });
+
+    updateSections();
+  }
+
+  function renderPayPalButtons(item) {
+    if (!window.paypal || !els.paypalButtonsContainer) return;
+
+    els.paypalButtonsContainer.innerHTML = '';
+
+    window.paypal.Buttons({
+      fundingSource: window.paypal.FUNDING.PAYPAL,
+      style: {
+        shape: 'rect',
+        layout: 'vertical',
+        color: 'gold',
+        label: 'checkout'
+      },
+      createOrder: function(data, actions) {
+        const amount = toNumberFromPrice(item.price);
+        return actions.order.create({
+          purchase_units: [{
+            amount: {
+              currency_code: 'EUR',
+              value: amount.toFixed(2)
+            },
+            description: item.name || 'Compra VW Golf'
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          window.location.href = 'payment-success.html';
+        });
+      },
+      onCancel: function(data) {
+        window.location.href = 'payment-cancel.html';
+      },
+      onError: function(err) {
+        showError('Ocorreu um erro no PayPal: ' + (err && err.message ? err.message : 'tente novamente.'));
+      }
+    }).render(els.paypalButtonsContainer);
+  }
+
+  function renderCardButtons(item) {
+    if (!window.paypal || !els.cardButtonsContainer) return;
+
+    const amount = toNumberFromPrice(item.price);
+    if (!Number.isFinite(amount)) {
+      showError('Preço inválido para processar o pagamento.');
+      return;
+    }
+
+    els.cardButtonsContainer.innerHTML = '';
+
+    const createButtonsConfig = {
+      style: {
+        shape: 'rect',
+        layout: 'vertical',
+        color: 'black',
+        label: 'pay'
+      },
+      createOrder: function(data, actions) {
+        return actions.order.create({
+          purchase_units: [{
+            amount: {
+              currency_code: 'EUR',
+              value: amount.toFixed(2)
+            },
+            description: item.name || 'Compra VW Golf'
+          }]
+        });
+      },
+      onApprove: function(data, actions) {
+        return actions.order.capture().then(function(details) {
+          window.location.href = 'payment-success.html';
+        });
+      },
+      onCancel: function(data) {
+        window.location.href = 'payment-cancel.html';
+      },
+      onError: function(err) {
+        showError('Ocorreu um erro no PayPal: ' + (err && err.message ? err.message : 'tente novamente.'));
+      }
+    };
+
+    const cardButtons = window.paypal.Buttons(Object.assign({ fundingSource: window.paypal.FUNDING.CARD }, createButtonsConfig));
+    if (typeof cardButtons.isEligible === 'function' && cardButtons.isEligible()) {
+      cardButtons.render(els.cardButtonsContainer);
+    } else {
+      const fallbackButtons = window.paypal.Buttons(createButtonsConfig);
+      fallbackButtons.render(els.cardButtonsContainer);
+    }
+
+    cardButtonsRendered = true;
   }
 
   function renderBaseItem(item) {
@@ -234,11 +311,9 @@
     // Render options
     const optionsInfo = renderOptions(item);
 
-    // Setup submit redirection
-    setupPaymentRedirection(item, optionsInfo);
-
-    // Hide creditcard/paypal sections if not needed (keep as is, but ensure no JS errors)
-    if (!els.creditcardSection && !els.paypalSection) return;
+    setupPaymentSections();
+    renderPayPalButtons(item);
+    renderCardButtons(item);
   }
 
   document.addEventListener('DOMContentLoaded', init);
