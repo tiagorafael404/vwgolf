@@ -1,5 +1,15 @@
 (function () {
   var fragments = [];
+  var authVisualStateKey = 'loggedIn';
+  var accountLabel = 'Sign in';
+
+  try {
+    if (localStorage.getItem(authVisualStateKey) === 'true') {
+      accountLabel = 'Account';
+    }
+  } catch (e) {
+    // localStorage may be unavailable in some environments
+  }
 
   if (!document.querySelector(".navbar")) {
     document.body.insertAdjacentHTML(
@@ -20,7 +30,7 @@
             '<a href="/">VW Golf</a>' +
           '</div>' +
           '<div class="more">' +
-            '<div class="nav-login"><a>Login</a></div>' +
+            '<div class="nav-login"><a>' + accountLabel + '</a></div>' +
             '<div class="nav-logout" style="display:none"><a>Logout</a></div>' +
           '</div>' +
         '</div>' +
@@ -35,7 +45,7 @@
         '<div class="nav1"><i class="material-icons">menu</i></div>' +
         '<div class="nav2"><a href="/">Home</a></div>' +
         '<div class="nav3">' +
-          '<div class="name"><a>Name</a></div>' +
+          '<div class="name"><a>' + accountLabel + '</a></div>' +
           '<div class="pic"><a><i class="bx bx-user"></i></a></div>' +
         '</div>' +
         '<div class="nav4"><a href="cart.html"><i class="bx bx-cart"></i></a></div>' +
