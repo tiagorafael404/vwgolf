@@ -123,6 +123,7 @@
         '</div>' +
       '</div>'
     );
+
   }
 
   if (!document.querySelector(".content")) {
@@ -142,4 +143,7 @@
   if (fragments.length > 0) {
     document.body.insertAdjacentHTML("beforeend", fragments.join(""));
   }
+
 })();
+
+
