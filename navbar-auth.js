@@ -270,6 +270,18 @@
       phoneNav3Button.dataset.accountBound = "true";
       phoneNav3Button.addEventListener("click", function (event) {
         event.preventDefault();
+
+        var divmenu = document.getElementById("menu");
+        var contentWrapper = divmenu ? divmenu.closest(".content") : document.querySelector(".content");
+
+        if (contentWrapper) {
+          contentWrapper.style.display = "block";
+        }
+
+        if (divmenu) {
+          divmenu.style.display = "none";
+        }
+
         openLoginEntryModal();
       });
     }
