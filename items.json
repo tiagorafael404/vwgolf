@@ -1441,6 +1441,6 @@
 
     "golf": 6,
     "url": "item.html?item=55",
-    "buy": "https://buy.stripe.com/7sY6oG7jw6e826Kaqf5Ne1x"
+    "buy": "payment.html?item=55"
   }
 ]
