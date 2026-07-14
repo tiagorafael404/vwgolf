@@ -15,8 +15,7 @@
     countryInput: document.getElementById("countryInput"),
     countryList: document.getElementById("countryList"),
     paypalSection: document.getElementById("paypal-section"),
-    cardSection: document.getElementById("card-section"),
-    methods: Array.prototype.slice.call(document.querySelectorAll('input[name="payment-method"]'))
+    cardSection: document.getElementById("card-section")
   };
 
   var state = {
@@ -293,29 +292,7 @@
     }
   }
 
-  function updateMethodVisibility() {
-    var selected = UI_FIELDS.methods.find(function (input) {
-      return input.checked;
-    });
 
-    var method = selected ? selected.value : "paypal";
-
-    if (UI_FIELDS.paypalSection) {
-      UI_FIELDS.paypalSection.hidden = method !== "paypal";
-    }
-
-    if (UI_FIELDS.cardSection) {
-      UI_FIELDS.cardSection.hidden = method !== "card";
-    }
-  }
-
-  function setupPaymentMethodToggle() {
-    UI_FIELDS.methods.forEach(function (input) {
-      input.addEventListener("change", updateMethodVisibility);
-    });
-
-    updateMethodVisibility();
-  }
 
   function setupCountryPicker() {
     if (!UI_FIELDS.countryInput || !UI_FIELDS.countryList) {
@@ -405,7 +382,6 @@
 
   function init() {
     setupCountryPicker();
-    setupPaymentMethodToggle();
     renderPayActions();
 
     loadItem().catch(function (error) {
