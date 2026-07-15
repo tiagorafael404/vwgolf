@@ -219,6 +219,13 @@ input:focus {
   background: #f3f7ff;
 }
 
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+  font-weight: 600;
+  user-select: none;
+}
+
 .submit-button {
   width: 100%;
   border: none;
