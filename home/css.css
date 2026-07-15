@@ -33,6 +33,31 @@ a{
     font-family: "Space Mono", monospace;
 }
 
+.products-golf-group {
+    width: 100%;
+}
+
+.products-golf-group + .products-golf-group {
+    margin-top: 12px;
+}
+
+.products-golf-title {
+    font-family: "Fjalla One", sans-serif;
+    font-size: 22px;
+    color: #2b2c4d;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 20px 10px 20px 24px;
+}
+
+.products-golf-group:first-child .products-golf-title {
+    margin-top: 0;
+}
+
+.products-golf-group:first-child {
+    padding-top: 36px;
+}
+
 
 
 
