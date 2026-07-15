@@ -337,52 +337,6 @@
     }
 
     actionsContainer.innerHTML = "";
-
-    if (!window.paypal || typeof window.paypal.Buttons !== "function") {
-      actionsContainer.appendChild(createPayButton("Finalizar compra"));
-      return;
-    }
-
-    var list = document.createElement("div");
-    list.className = "payment-method-list";
-
-    var renderedMethods = 0;
-    var sources = [
-      {
-        label: "Pagar com PayPal",
-        source: window.paypal.FUNDING && window.paypal.FUNDING.PAYPAL
-      },
-      {
-        label: "Pagar com cartao",
-        source: window.paypal.FUNDING && window.paypal.FUNDING.CARD
-      },
-      {
-        label: "Pagar com Apple Pay",
-        source: window.paypal.FUNDING && window.paypal.FUNDING.APPLEPAY,
-        unavailableMessage: "Apple Pay aparece apenas em dispositivos e navegadores compativeis."
-      }
-    ];
-
-    sources.forEach(function (item) {
-      var methodCard = createMethodCard(item.label);
-      list.appendChild(methodCard.card);
-
-      var rendered = renderPaypalButtons(methodCard.container, item.source);
-      if (rendered) {
-        renderedMethods += 1;
-      } else if (item.unavailableMessage) {
-        appendHint(methodCard.card, item.unavailableMessage);
-      } else {
-        methodCard.card.style.display = "none";
-      }
-    });
-
-    actionsContainer.appendChild(list);
-
-    if (renderedMethods === 0) {
-      actionsContainer.innerHTML = "";
-      actionsContainer.appendChild(createPayButton("Finalizar compra"));
-    }
   }
 
 
