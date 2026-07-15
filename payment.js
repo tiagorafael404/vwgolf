@@ -13,15 +13,20 @@
   var UI_FIELDS = {
     form: document.getElementById("paymentForm"),
     countryInput: document.getElementById("countryInput"),
-    countryList: document.getElementById("countryList"),
-    paypalSection: document.getElementById("paypal-section"),
-    cardSection: document.getElementById("card-section")
+    countryList: document.getElementById("countryList")
   };
 
   var state = {
     item: null,
     selectedOption: null,
     currentPayUrl: ""
+  };
+
+  var BILLING_FIELD_NAMES = {
+    address: true,
+    postal: true,
+    city: true,
+    country: true
   };
 
   function showError(message) {
@@ -210,12 +215,32 @@
     return numeric.toFixed(2);
   }
 
-  function validateCheckoutForm() {
+  function validateCheckoutForm(options) {
+    var config = options || {};
+    var ignoreBillingAddress = Boolean(config.ignoreBillingAddress);
+
     showError("");
 
-    if (UI_FIELDS.form && !UI_FIELDS.form.checkValidity()) {
-      UI_FIELDS.form.reportValidity();
-      showError("Preencha todos os campos obrigatorios antes de pagar.");
+    if (!UI_FIELDS.form) {
+      return true;
+    }
+
+    var requiredFields = Array.prototype.slice.call(UI_FIELDS.form.querySelectorAll("input[required]"));
+    var firstInvalidField = null;
+
+    requiredFields.forEach(function (field) {
+      if (ignoreBillingAddress && BILLING_FIELD_NAMES[field.name]) {
+        return;
+      }
+
+      if (!field.checkValidity() && !firstInvalidField) {
+        firstInvalidField = field;
+      }
+    });
+
+    if (firstInvalidField) {
+      firstInvalidField.reportValidity();
+      showError("Preencha os campos obrigatorios antes de pagar.");
       return false;
     }
 
@@ -229,7 +254,9 @@
 
     var config = {
       onClick: function (data, actions) {
-        if (!validateCheckoutForm()) {
+        if (!validateCheckoutForm({
+          ignoreBillingAddress: Boolean(window.paypal && window.paypal.FUNDING && fundingSource === window.paypal.FUNDING.CARD)
+        })) {
           return actions.reject();
         }
 
@@ -263,32 +290,98 @@
       config.fundingSource = fundingSource;
     }
 
-    window.paypal.Buttons(config).render(container);
+    var button = window.paypal.Buttons(config);
+    if (!button) {
+      return false;
+    }
+
+    if (typeof button.isEligible === "function" && !button.isEligible()) {
+      return false;
+    }
+
+    button.render(container).catch(function () {
+      showError("Falha ao carregar um metodo de pagamento PayPal.");
+    });
     return true;
   }
 
-  function renderPayActions() {
-    var paypalContainer = document.getElementById("paypal-buttons-container");
-    var cardContainer = document.getElementById("card-buttons-container");
-    var paypalRendered = false;
-    var cardRendered = false;
+  function createMethodCard(title) {
+    var card = document.createElement("section");
+    card.className = "payment-method";
 
-    if (paypalContainer) {
-      paypalContainer.innerHTML = "";
-      paypalRendered = renderPaypalButtons(paypalContainer, null);
-      if (!paypalRendered) {
-        paypalContainer.appendChild(createPayButton("Pagar agora"));
-      }
+    var heading = document.createElement("h3");
+    heading.textContent = title;
+    card.appendChild(heading);
+
+    var container = document.createElement("div");
+    container.className = "payment-sdk-container";
+    card.appendChild(container);
+
+    return {
+      card: card,
+      container: container
+    };
+  }
+
+  function appendHint(parent, message) {
+    var hint = document.createElement("div");
+    hint.className = "payment-hint";
+    hint.textContent = message;
+    parent.appendChild(hint);
+  }
+
+  function renderPayActions() {
+    var actionsContainer = document.getElementById("checkout-actions");
+    if (!actionsContainer) {
+      return;
     }
 
-    if (cardContainer) {
-      cardContainer.innerHTML = "";
-      if (window.paypal && window.paypal.FUNDING) {
-        cardRendered = renderPaypalButtons(cardContainer, window.paypal.FUNDING.CARD);
+    actionsContainer.innerHTML = "";
+
+    if (!window.paypal || typeof window.paypal.Buttons !== "function") {
+      actionsContainer.appendChild(createPayButton("Finalizar compra"));
+      return;
+    }
+
+    var list = document.createElement("div");
+    list.className = "payment-method-list";
+
+    var renderedMethods = 0;
+    var sources = [
+      {
+        label: "Pagar com PayPal",
+        source: window.paypal.FUNDING && window.paypal.FUNDING.PAYPAL
+      },
+      {
+        label: "Pagar com cartao",
+        source: window.paypal.FUNDING && window.paypal.FUNDING.CARD
+      },
+      {
+        label: "Pagar com Apple Pay",
+        source: window.paypal.FUNDING && window.paypal.FUNDING.APPLEPAY,
+        unavailableMessage: "Apple Pay aparece apenas em dispositivos e navegadores compativeis."
       }
-      if (!cardRendered) {
-        cardContainer.appendChild(createPayButton("Pagar com cartao"));
+    ];
+
+    sources.forEach(function (item) {
+      var methodCard = createMethodCard(item.label);
+      list.appendChild(methodCard.card);
+
+      var rendered = renderPaypalButtons(methodCard.container, item.source);
+      if (rendered) {
+        renderedMethods += 1;
+      } else if (item.unavailableMessage) {
+        appendHint(methodCard.card, item.unavailableMessage);
+      } else {
+        methodCard.card.style.display = "none";
       }
+    });
+
+    actionsContainer.appendChild(list);
+
+    if (renderedMethods === 0) {
+      actionsContainer.innerHTML = "";
+      actionsContainer.appendChild(createPayButton("Finalizar compra"));
     }
   }
 
