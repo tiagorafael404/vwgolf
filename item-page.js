@@ -84,7 +84,7 @@
   }
 
   function getItemsJsonUrl() {
-    var documentScript = document.currentScript || document.querySelector('script[src$="item-page.js"]');
+    var documentScript = document.currentScript || document.querySelector('script[src*="item-page.js"]');
     if (documentScript && documentScript.src) {
       return new URL("items.json", documentScript.src).href;
     }
