@@ -1170,6 +1170,11 @@ body {
 
     }
 
+    .delivery .pt2{
+        margin: auto auto auto 10;
+
+    }
+
     @media screen and (max-width: 1600px) {
 
     .cookies-box {

@@ -6,6 +6,47 @@
 
   var currentDetailItem = null;
 
+  function formatDayMonth(date, isUnitedStates) {
+    var monthAbbreviations = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+    var day = String(date.getDate());
+    var month = monthAbbreviations[date.getMonth()];
+
+    if (isUnitedStates) {
+      return month + " " + day;
+    }
+
+    return day + " " + month;
+  }
+
+  function setEstimatedDeliveryRange() {
+    var pt2Delivery = document.querySelector(".pt2 a");
+    if (!pt2Delivery) {
+      return;
+    }
+
+    var localeCandidates = [];
+    if (Array.isArray(navigator.languages)) {
+      localeCandidates = localeCandidates.concat(navigator.languages);
+    }
+    if (navigator.language) {
+      localeCandidates.push(navigator.language);
+    }
+
+    var isUnitedStates = localeCandidates.some(function (locale) {
+      var normalizedLocale = String(locale || "").toLowerCase();
+      return normalizedLocale === "en-us" || normalizedLocale.endsWith("-us");
+    });
+
+    var now = new Date();
+    var inTwoWeeks = new Date(now);
+    inTwoWeeks.setDate(now.getDate() + 14);
+
+    var inFiveWeeks = new Date(now);
+    inFiveWeeks.setDate(now.getDate() + 35);
+
+    pt2Delivery.textContent = formatDayMonth(inTwoWeeks, isUnitedStates) + " - " + formatDayMonth(inFiveWeeks, isUnitedStates);
+  }
+
   function bindGalleryClick() {
     var galleryItems = document.querySelectorAll(".gallery-item");
     var mainPhoto = document.getElementById("main_photo");
@@ -426,6 +467,7 @@
   }
 
   function initializeItemPage() {
+    setEstimatedDeliveryRange();
     bindGalleryClick();
     loadProductItemsFromJson();
   }
