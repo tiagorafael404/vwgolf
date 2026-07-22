@@ -21,13 +21,13 @@
     }
 
     var now = new Date();
-    var inTwoWeeks = new Date(now);
-    inTwoWeeks.setDate(now.getDate() + 14);
+    var inFiveDays = new Date(now);
+    inFiveDays.setDate(now.getDate() + 5);
 
-    var inFiveWeeks = new Date(now);
-    inFiveWeeks.setDate(now.getDate() + 35);
+    var inFourteenDays = new Date(now);
+    inFourteenDays.setDate(now.getDate() + 14);
 
-    pt2Delivery.textContent = formatDayMonth(inTwoWeeks) + " - " + formatDayMonth(inFiveWeeks);
+    pt2Delivery.textContent = formatDayMonth(inFiveDays) + " - " + formatDayMonth(inFourteenDays);
   }
 
   function bindGalleryClick() {
