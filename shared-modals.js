@@ -125,7 +125,40 @@
 
   }
 
-  // moved .content/menu injection to shared-content.js to avoid duplication across pages
+  if (!document.getElementById("account-modal")) {
+    fragments.push(
+      '<div class="account-modal" id="account-modal">' +
+        '<div class="account-window">' +
+          '<div class="account-header">' +
+            '<div class="space"></div>' +
+            '<div class="title">' +
+              '<div class="title1"><i class="fa fa-user-circle"></i></div>' +
+              '<div class="title2"><a>My account</a></div>' +
+            '</div>' +
+            '<div class="close"><i class="fa fa-close" id="account-close"></i></div>' +
+          '</div>' +
+          '<div class="account-content">' +
+            '<div class="account-cart"><a href="cart.html">Cart</a></div>' +
+            '<div class="account-login"><a>Logout</a></div>' +
+          '</div>' +
+        '</div>' +
+      '</div>'
+    );
+  }
+
+  if (!document.querySelector(".content")) {
+    fragments.push(
+      '<div class="content">' +
+        '<div class="menu3" id="menu">' +
+          '<ul>' +
+            '<li><a href="/home.html" class="menubutton">Home</a></li>' +
+            '<li id="contactme-phone"><a class="menubutton">Contact</a></li>' +
+            '<li><a class="menubutton" href="aboutus.html">About us</a></li>' +
+          '</ul>' +
+        '</div>' +
+      '</div>'
+    );
+  }
 
   if (fragments.length > 0) {
     document.body.insertAdjacentHTML("beforeend", fragments.join(""));
