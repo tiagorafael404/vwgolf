@@ -1,4 +1,4 @@
-window.VWGolfFirebaseConfig = {
+window.FirebaseConfig = {
   apiKey: "AIzaSyBq-J1EftCEIpEIDuR88VsdNfwynLD4-is",
   authDomain: "vwgolf-7011b.firebaseapp.com",
   projectId: "vwgolf-7011b",
