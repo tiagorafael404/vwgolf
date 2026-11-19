@@ -149,7 +149,7 @@
     var authModal = document.getElementById("auth-modal");
 
     if (!isUserLoggedIn()) {
-      openLoginEntryModal();
+      openAuthModal();
       return;
     }
 
@@ -216,6 +216,7 @@
 
     var auth = window.firebase.auth();
     firebaseAuthInstance = auth;
+    window.VazerkFirebaseAuth = auth;
 
     auth.setPersistence(window.firebase.auth.Auth.Persistence.LOCAL).catch(function (error) {
       console.error("Erro ao definir persistencia do login:", error);

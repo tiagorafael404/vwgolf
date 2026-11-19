@@ -66,6 +66,68 @@
     });
   }
 
+  function bindCartButton() {
+    var cartLink = document.getElementById("cartLink");
+
+    if (!cartLink || cartLink.dataset.cartBound) {
+      return;
+    }
+
+    cartLink.dataset.cartBound = "true";
+    cartLink.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      if (cartLink.getAttribute("aria-disabled") === "true" || cartLink.dataset.adding === "true") {
+        return;
+      }
+
+      if (!currentDetailItem) {
+        window.alert("Product details are not available.");
+        return;
+      }
+
+      if (!window.VazerkCart || typeof window.VazerkCart.add !== "function") {
+        var cartError = new Error("Cart is unavailable. Please refresh the page and try again.");
+        console.error(cartError);
+        window.alert(cartError.message);
+        return;
+      }
+
+      var selectedOption = null;
+      if (currentDetailItem.select && Array.isArray(currentDetailItem.select.options)) {
+        var selectedOptionElement = document.querySelector(".options_list li.selected");
+        selectedOption = selectedOptionElement
+          ? currentDetailItem.select.options.find(function (option) {
+            return String(option.id) === selectedOptionElement.id;
+          })
+          : null;
+
+        if (currentDetailItem.select.options.length > 0 && !selectedOption) {
+          window.alert("Please select an option before adding this item.");
+          return;
+        }
+      }
+
+      cartLink.dataset.adding = "true";
+      cartLink.setAttribute("aria-disabled", "true");
+
+      window.VazerkCart.add(currentDetailItem, selectedOption).then(function () {
+        window.location.href = "cart.html";
+      }, function (error) {
+        console.error("Unable to add this item to the cart.", error);
+        delete cartLink.dataset.adding;
+        cartLink.setAttribute("aria-disabled", "false");
+
+        if (error.code === "auth-required") {
+          window.location.href = "cart.html";
+          return;
+        }
+
+        window.alert(error.message || "Unable to add this item to the cart. Please try again.");
+      });
+    });
+  }
+
   function getItemsJsonUrl() {
     var documentScript = document.currentScript || document.querySelector('script[src*="item-page.js"]');
     if (documentScript && documentScript.src) {
@@ -357,6 +419,11 @@
           return;
         }
 
+        var cartLink = document.getElementById("cartLink");
+        if (cartLink) {
+          cartLink.setAttribute("aria-disabled", "false");
+        }
+
         var productName = document.querySelector(".product_name a");
         var productPrice = document.querySelector(".product_price a");
         var productDescription = document.querySelector(".product_description a");
@@ -452,6 +519,7 @@
   function initializeItemPage() {
     setEstimatedDeliveryRange();
     bindGalleryClick();
+    bindCartButton();
     loadProductItemsFromJson();
   }
 
