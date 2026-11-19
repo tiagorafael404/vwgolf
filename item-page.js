@@ -119,7 +119,12 @@
         cartLink.setAttribute("aria-disabled", "false");
 
         if (error.code === "auth-required") {
-          window.location.href = "cart.html";
+          var signInButton = document.querySelector(".nav-login");
+          if (signInButton) {
+            signInButton.click();
+          } else {
+            console.error("Unable to open the sign-in modal.");
+          }
           return;
         }
 
