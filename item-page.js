@@ -128,6 +128,71 @@
     });
   }
 
+  function bindBuyButton() {
+    var buyLink = document.getElementById("buyLink");
+
+    if (!buyLink || buyLink.dataset.buyBound) {
+      return;
+    }
+
+    buyLink.dataset.buyBound = "true";
+    buyLink.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      if (buyLink.getAttribute("aria-disabled") === "true" || buyLink.dataset.buying === "true") {
+        return;
+      }
+
+      if (!currentDetailItem) {
+        window.alert("Product details are not available.");
+        return;
+      }
+
+      if (typeof window.comprar !== "function") {
+        var checkoutError = new Error("Checkout is unavailable. Please refresh the page and try again.");
+        console.error(checkoutError);
+        window.alert(checkoutError.message);
+        return;
+      }
+
+      var selectedOption = null;
+      if (currentDetailItem.select && Array.isArray(currentDetailItem.select.options)) {
+        var selectedOptionElement = document.querySelector(".options_list li.selected");
+        selectedOption = selectedOptionElement
+          ? currentDetailItem.select.options.find(function (option) {
+            return String(option.id) === selectedOptionElement.id;
+          })
+          : null;
+
+        if (currentDetailItem.select.options.length > 0 && !selectedOption) {
+          window.alert("Please select an option before buying this item.");
+          return;
+        }
+      }
+
+      buyLink.dataset.buying = "true";
+      buyLink.setAttribute("aria-disabled", "true");
+
+      window.comprar(currentDetailItem.id, selectedOption ? selectedOption.id : null).catch(function (error) {
+        console.error("Unable to start checkout.", error);
+        delete buyLink.dataset.buying;
+        buyLink.setAttribute("aria-disabled", "false");
+
+        if (error.code === "auth-required") {
+          var signInButton = document.querySelector(".nav-login");
+          if (signInButton) {
+            signInButton.click();
+          } else {
+            console.error("Unable to open the sign-in modal.");
+          }
+          return;
+        }
+
+        window.alert(error.message || "Unable to start checkout. Please try again.");
+      });
+    });
+  }
+
   function getItemsJsonUrl() {
     var documentScript = document.currentScript || document.querySelector('script[src*="item-page.js"]');
     if (documentScript && documentScript.src) {
@@ -452,7 +517,7 @@
         }
 
         if (buyLink) {
-          buyLink.href = detailItem.buy || buyLink.getAttribute("href") || "#";
+          buyLink.setAttribute("aria-disabled", "false");
         }
 
         if (optionsList && detailItem.select && Array.isArray(detailItem.select.options) && detailItem.select.options.length > 0) {
@@ -475,16 +540,10 @@
               });
               li.classList.add("selected");
 
-              if (buyLink) {
-                buyLink.href = option.url || detailItem.buy || buyLink.getAttribute("href") || "#";
-              }
             });
 
             if (index === 0) {
               li.classList.add("selected");
-              if (buyLink) {
-                buyLink.href = option.url || detailItem.buy || buyLink.getAttribute("href") || "#";
-              }
             }
           });
         }
@@ -520,6 +579,7 @@
     setEstimatedDeliveryRange();
     bindGalleryClick();
     bindCartButton();
+    bindBuyButton();
     loadProductItemsFromJson();
   }
 
