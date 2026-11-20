@@ -2292,6 +2292,7 @@ body {
 
     .p-container .gallery ul::-webkit-scrollbar {
         display: none;
+
     }
 
     .p-container .gallery li {
