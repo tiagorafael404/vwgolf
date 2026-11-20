@@ -31,15 +31,19 @@
   }
 
   function bindGalleryClick() {
-    var galleryItems = document.querySelectorAll(".gallery-item");
-    var mainPhoto = document.getElementById("main_photo");
+    document.querySelectorAll(".p-container .gallery ul").forEach(function (gallery) {
+      if (gallery.dataset.galleryClickBound === "true") {
+        return;
+      }
 
-    if (!galleryItems.length || !mainPhoto) {
-      return;
-    }
+      gallery.dataset.galleryClickBound = "true";
+      gallery.addEventListener("click", function (event) {
+        var item = event.target.closest(".gallery-item");
+        var mainPhoto = document.getElementById("main_photo");
+        if (!item || !gallery.contains(item) || !mainPhoto) {
+          return;
+        }
 
-    galleryItems.forEach(function (item) {
-      item.addEventListener("click", function () {
         var newImage = item.getAttribute("photo");
 
         if (currentDetailItem) {
@@ -71,26 +75,32 @@
       var startX = 0;
       var startScrollLeft = 0;
       var dragged = false;
+      var pointerDown = false;
+      var activePointerId = null;
 
       gallery.addEventListener("pointerdown", function (event) {
         if (event.pointerType === "mouse" && event.button !== 0) {
           return;
         }
 
+        pointerDown = true;
+        activePointerId = event.pointerId;
         startX = event.clientX;
         startScrollLeft = gallery.scrollLeft;
         dragged = false;
-        gallery.setPointerCapture(event.pointerId);
         gallery.style.cursor = "grabbing";
       });
 
       gallery.addEventListener("pointermove", function (event) {
-        if (!gallery.hasPointerCapture(event.pointerId)) {
+        if (!pointerDown || event.pointerId !== activePointerId) {
           return;
         }
 
         var distance = event.clientX - startX;
         if (Math.abs(distance) > 4) {
+          if (!gallery.hasPointerCapture(event.pointerId)) {
+            gallery.setPointerCapture(event.pointerId);
+          }
           dragged = true;
         }
 
@@ -98,8 +108,12 @@
       });
 
       function endDrag(event) {
-        if (gallery.hasPointerCapture(event.pointerId)) {
+        if (event.pointerId === activePointerId && gallery.hasPointerCapture(event.pointerId)) {
           gallery.releasePointerCapture(event.pointerId);
+        }
+        if (event.pointerId === activePointerId) {
+          pointerDown = false;
+          activePointerId = null;
         }
         gallery.style.cursor = "grab";
       }
@@ -109,7 +123,7 @@
 
       gallery.addEventListener("click", function (event) {
         if (dragged) {
-          event.preventPropagation();
+          event.stopPropagation();
           event.preventDefault();
           dragged = false;
         }
@@ -610,14 +624,42 @@
           mainPhotoElement.style.backgroundImage = "url('" + photoUrl + "')";
         }
 
+        var galleryList = document.querySelector(".p-container .gallery ul");
+        if (galleryList) {
+          for (var photoIndex = 1; photoIndex <= 6; photoIndex++) {
+            if (document.getElementById("photo" + photoIndex)) {
+              continue;
+            }
+
+            var photoPlaceholder = document.createElement("li");
+            photoPlaceholder.id = "photo" + photoIndex;
+            photoPlaceholder.className = "gallery-item";
+
+            var nextPhoto = null;
+            for (var nextIndex = photoIndex + 1; nextIndex <= 6; nextIndex++) {
+              nextPhoto = document.getElementById("photo" + nextIndex);
+              if (nextPhoto) {
+                break;
+              }
+            }
+
+            galleryList.insertBefore(photoPlaceholder, nextPhoto);
+          }
+        }
+
         ["image", "image2", "image3", "image4", "image5", "image6"].forEach(function (key, index) {
           var imageValue = detailItem[key];
-          if (!imageValue) {
+          var photo = document.getElementById("photo" + (index + 1));
+
+          if (!photo) {
             return;
           }
 
-          var photo = document.getElementById("photo" + (index + 1));
-          if (!photo) {
+          photo.style.backgroundImage = "";
+          photo.removeAttribute("photo");
+
+          if (!imageValue) {
+            photo.remove();
             return;
           }
 
@@ -625,6 +667,8 @@
           photo.style.backgroundImage = "url('" + imageUrl + "')";
           photo.setAttribute("photo", imageValue);
         });
+
+        bindGalleryClick();
       })
       .catch(function (error) {
         console.error("Erro ao carregar items.json:", error);
