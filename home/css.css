@@ -445,10 +445,9 @@ a{
     
         }
     
-        .name{
+    .products .name{
             text-align: left;
             color: #fff;
-            font-size: 20px;
             text-transform: uppercase;
             font-weight: bold;
             font-family: sans-serif;
@@ -457,7 +456,7 @@ a{
             margin: auto auto 5 auto;
         }
     
-        .price{
+    .products .price{
             text-align: left;
             color: #000000;
             font-size: 20px;
@@ -469,7 +468,7 @@ a{
             
         }
     
-        .name a{
+    .products .name a{
             text-decoration: none;
             color: #000000;
             font-size: 16px;
@@ -482,7 +481,7 @@ a{
             
         }
     
-        .price a{
+    .products .price a{
             text-decoration: none;
             color: #000000;
             font-size: 16px;
