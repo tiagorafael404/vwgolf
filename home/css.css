@@ -41,22 +41,12 @@ a{
     margin-top: 12px;
 }
 
-.products-golf-title {
-    font-family: "Fjalla One", sans-serif;
-    font-size: 22px;
-    color: #2b2c4d;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin: 20px 10px 20px 24px;
-}
 
 .products-golf-group:first-child .products-golf-title {
     margin-top: 0;
 }
 
-.products-golf-group:first-child {
-    padding-top: 36px;
-}
+
 
 
 
@@ -93,7 +83,7 @@ a{
         height: 50px;
         text-transform: none;
         border-radius: 7px;
-        background-color: #494a7e;
+        background: linear-gradient(to bottom right, #00266D, #061C40);
 
     }
 
@@ -109,6 +99,20 @@ a{
         display: flex;
         height: 100%;
     }
+
+    .products-golf-group:first-child {
+    padding-top: 36px;
+}
+
+    .products-golf-title {
+    font-family: "Fjalla One", sans-serif;
+    font-size: 30px;
+    color: #002569;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 100px 10px 5px 40px;
+}
+
 
 
     .mypage {
@@ -405,7 +409,7 @@ a{
             list-style: none;
             padding: 10px;
             border-radius: 0px;
-            margin: 02 0 02 0; /* Espaço entre as linhas */
+            margin: 02 0 07 0; /* Espaço entre as linhas */
             width: 50%;
             height: auto;
             text-transform: none;
@@ -444,7 +448,8 @@ a{
             font-weight: bold;
             font-family: sans-serif;
             width: 100%;
-            height: 50%;
+            height: auto;
+            margin: auto auto 5 auto;
         }
     
         .price{
@@ -455,7 +460,7 @@ a{
             font-weight: bold;
             font-family: sans-serif;
             width: 100%;
-            height: 50%;
+            height: auto;
             
         }
     
@@ -466,7 +471,7 @@ a{
             text-transform: none;
             font-weight: bold;
             display: flex;
-            height: 100%;
+            height: auto;
             align-items: center;
             justify-content: left;
             
@@ -482,7 +487,7 @@ a{
             align-items: center;
             justify-content: left;
             display: flex;
-            height: 100%;
+            height: auto;
             font-family: "Space Mono", monospace;
             
         }
@@ -518,7 +523,7 @@ a{
         height: 45px;
         text-transform: none;
         border-radius: 7px;
-        background-color: #494a7e;
+        background: linear-gradient(to bottom right, #00266D, #061C40);
 
     }
 
@@ -535,6 +540,18 @@ a{
         height: 100%;
     }
 
+    .products-golf-group:first-child {
+    padding-top: 15px;
+}
+
+    .products-golf-title {
+    font-family: "Fjalla One", sans-serif;
+    font-size: 20px;
+    color: #002569;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 35px 10px 5px 20px;
+}
 
 
 }

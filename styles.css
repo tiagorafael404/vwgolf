@@ -93,7 +93,7 @@ body {
         justify-content: space-between;
         text-decoration: none;
         text-transform: none;
-        background-color: #494a7e;
+        background: linear-gradient(to right, #00266D, #011949);
 
     }
 
@@ -1400,7 +1400,7 @@ body {
 
     .navbar-phone{
         display: flex;
-        background-color:#494a7e;
+        background: linear-gradient(to right, #002569, #011949);
         height: 50px;
         flex-direction: row;
         justify-content: space-between;
