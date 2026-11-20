@@ -98,6 +98,10 @@ a{
         justify-content: center;
         display: flex;
         height: 100%;
+        font-family: "Figtree", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 530;
+        font-style: normal;
     }
 
     .products-golf-group:first-child {
@@ -531,7 +535,7 @@ a{
     .categories a{
         text-decoration: none;
         color: #fff;
-        font-size: 18px;
+        font-size: 17px;
         text-transform: none;
         font-weight: lighter;
         margin: auto;
@@ -539,6 +543,10 @@ a{
         justify-content: center;
         display: flex;
         height: 100%;
+        font-family: "Figtree", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 530;
+        font-style: normal;
     }
 
     .products-golf-group:first-child {
@@ -546,7 +554,10 @@ a{
 }
 
     .products-golf-title {
-    font-family: "Fjalla One", sans-serif;
+    font-family: "Figtree", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 530;
+    font-style: normal;
     font-size: 20px;
     color: #002569;
     letter-spacing: 1px;
