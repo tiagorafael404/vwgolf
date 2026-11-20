@@ -32,6 +32,7 @@
           '<div class="more">' +
             '<div class="nav-login"><a>' + accountLabel + '</a></div>' +
             '<div class="nav-logout" style="display:none"><a>Logout</a></div>' +
+            '<div class="nav-cart"><a href="cart.html"><i class="bx bx-shopping-bag"></i></a></div>' +
           '</div>' +
         '</div>' +
       '</div>'

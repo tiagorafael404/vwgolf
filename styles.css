@@ -1,5 +1,8 @@
 .navbar a, .navbar-phone a {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Figtree", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 530;
+  font-style: normal;
 }
 
 html {
@@ -166,6 +169,8 @@ body {
         height: 100%;
         align-items: right;
         justify-content: right;
+        display: flex;
+        flex-direction: row;
     }
 
 
@@ -183,6 +188,33 @@ body {
 
         margin: auto 0 auto auto;
         cursor: pointer;
+    }
+
+    .nav-cart {
+        width: 70;
+        height: 100%;
+        margin: auto 0 auto 0;
+        cursor: pointer;
+        display: flex;
+    }
+
+    .nav-cart a {
+        text-decoration: none;
+        color: black;
+        font-size: 20px;
+        text-transform: none;
+        margin: auto;
+        height: 100%;
+        width: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav-cart i {
+        font-size: 30px;
+        margin: auto;
+        width: auto;
     }
 
     .more a {
