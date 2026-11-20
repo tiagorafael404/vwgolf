@@ -66,6 +66,57 @@
     });
   }
 
+  function bindGalleryDrag() {
+    document.querySelectorAll(".p-container .gallery ul").forEach(function (gallery) {
+      var startX = 0;
+      var startScrollLeft = 0;
+      var dragged = false;
+
+      gallery.addEventListener("pointerdown", function (event) {
+        if (event.pointerType === "mouse" && event.button !== 0) {
+          return;
+        }
+
+        startX = event.clientX;
+        startScrollLeft = gallery.scrollLeft;
+        dragged = false;
+        gallery.setPointerCapture(event.pointerId);
+        gallery.style.cursor = "grabbing";
+      });
+
+      gallery.addEventListener("pointermove", function (event) {
+        if (!gallery.hasPointerCapture(event.pointerId)) {
+          return;
+        }
+
+        var distance = event.clientX - startX;
+        if (Math.abs(distance) > 4) {
+          dragged = true;
+        }
+
+        gallery.scrollLeft = startScrollLeft - distance;
+      });
+
+      function endDrag(event) {
+        if (gallery.hasPointerCapture(event.pointerId)) {
+          gallery.releasePointerCapture(event.pointerId);
+        }
+        gallery.style.cursor = "grab";
+      }
+
+      gallery.addEventListener("pointerup", endDrag);
+      gallery.addEventListener("pointercancel", endDrag);
+
+      gallery.addEventListener("click", function (event) {
+        if (dragged) {
+          event.preventPropagation();
+          event.preventDefault();
+          dragged = false;
+        }
+      }, true);
+    });
+  }
+
   function bindCartButton() {
     var cartLink = document.getElementById("cartLink");
 
@@ -583,6 +634,7 @@
   function initializeItemPage() {
     setEstimatedDeliveryRange();
     bindGalleryClick();
+    bindGalleryDrag();
     bindCartButton();
     bindBuyButton();
     loadProductItemsFromJson();
