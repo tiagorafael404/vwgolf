@@ -1,5 +1,5 @@
-.navbar a {
-    font-family: "Fjalla One", sans-serif;
+.navbar a, .navbar-phone a {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 html {
@@ -1432,7 +1432,6 @@ body {
     .navbar-phone .nav2 a{
         font-size: 20px;
         font-weight: normal;
-        font-family: "Poppins", sans-serif;
 
     }
 
@@ -1451,7 +1450,6 @@ body {
         font-size: 20px;
         font-weight: normal;
         margin: auto auto auto 5;
-        font-family: "Poppins", sans-serif;
 
 
     }
