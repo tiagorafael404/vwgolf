@@ -8,6 +8,7 @@
   var firebaseAuthInstance = null;
   var currentAuthUser = null;
 
+  // Estado visual da autenticacao
   function setAccountNavLabel(loggedIn) {
     document.querySelectorAll(".nav-login a, .navbar-phone .nav3 .name a").forEach(function (link) {
       link.textContent = loggedIn ? "Account" : "Sign in";
@@ -28,6 +29,7 @@
     });
   }
 
+  // Menu e janelas deslizantes
   function toggleMobileMenuContent() {
     var divmenu = document.getElementById("menu");
     if (!divmenu) {
@@ -94,6 +96,7 @@
     toggleSlidingWindow(elementToOpen);
   }
 
+  // Modais e acoes da conta
   function isUserLoggedIn() {
     return localStorage.getItem(authVisualStateKey) === "true";
   }
@@ -156,6 +159,7 @@
     openExclusiveSlidingWindow(contactModal, authModal);
   }
 
+  // Autenticacao Firebase
   function updateAuthUi(user) {
     currentAuthUser = user || null;
     localStorage.setItem(authVisualStateKey, user ? "true" : "false");
@@ -257,6 +261,7 @@
 
   }
 
+  // Eventos da navegacao
   function bindNavigationHandlers() {
     var desktopMoreButton = document.getElementById("more");
     if (desktopMoreButton && !desktopMoreButton.dataset.menuBound) {
@@ -414,6 +419,7 @@
     }
   }
 
+  // Inicializacao
   function initializeNavigationAuth() {
     applyStoredAuthUiState();
     bindNavigationHandlers();

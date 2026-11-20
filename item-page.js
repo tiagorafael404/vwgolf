@@ -6,6 +6,7 @@
 
   var currentDetailItem = null;
 
+  // Utilitarios da pagina
   function formatDayMonth(date) {
     var monthAbbreviations = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
     var day = String(date.getDate());
@@ -30,6 +31,7 @@
     pt2Delivery.textContent = formatDayMonth(inFiveDays) + " - " + formatDayMonth(inFourteenDays);
   }
 
+  // Galeria de imagens
   function bindGalleryClick() {
     document.querySelectorAll(".p-container .gallery ul").forEach(function (gallery) {
       if (gallery.dataset.galleryClickBound === "true") {
@@ -131,6 +133,7 @@
     });
   }
 
+  // Acoes de compra
   function bindCartButton() {
     var cartLink = document.getElementById("cartLink");
 
@@ -263,6 +266,7 @@
     });
   }
 
+  // Carregamento e exibicao dos produtos
   function getItemsJsonUrl() {
     var documentScript = document.currentScript || document.querySelector('script[src*="item-page.js"]');
     if (documentScript && documentScript.src) {
@@ -675,6 +679,7 @@
       });
   }
 
+  // Inicializacao
   function initializeItemPage() {
     setEstimatedDeliveryRange();
     bindGalleryClick();
