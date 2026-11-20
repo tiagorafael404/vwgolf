@@ -16,7 +16,7 @@ html {
 }
 
 body {
-  background: red;
+  background: linear-gradient(180deg, #e9eff8 0%, #f8f9fc 100%);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
