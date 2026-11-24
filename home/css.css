@@ -232,7 +232,7 @@ a{
     .products .info{
         margin: 7 auto auto 5;
         width: 100%;
-        height: 60;
+        height: auto;
         text-transform: none;
 
     }
@@ -245,7 +245,8 @@ a{
         font-weight: bold;
         font-family: sans-serif;
         width: 100%;
-        height: 50%;
+        height: auto;
+        margin: 10 auto 0 auto;
     }
 
     .price{
@@ -256,8 +257,8 @@ a{
         font-weight: bold;
         font-family: sans-serif;
         width: 100%;
-        height: 50%;
-        
+        height: auto;
+        margin: 10 auto 0 auto;
     }
 
     .name a{
@@ -267,7 +268,7 @@ a{
         text-transform: none;
         font-weight: bold;
         display: flex;
-        height: 100%;
+        height: auto;
         align-items: center;
         justify-content: left;
         font-family: "Trebuchet MS", sans-serif;
@@ -284,7 +285,7 @@ a{
         align-items: center;
         justify-content: left;
         display: flex;
-        height: 100%;
+        height: auto;
         font-family: "Space Mono", monospace;
         
     }
