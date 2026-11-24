@@ -2589,3 +2589,713 @@ body {
 
 
 }
+
+:root {
+    --store-ink: #17212b;
+    --store-muted: #65717b;
+    --store-accent: #d65b36;
+    --store-dark: #14232b;
+    --store-line: #e2e7e8;
+    --store-paper: #f5f6f3;
+}
+
+html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    display: block;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    background: var(--store-paper);
+    color: var(--store-ink);
+    font-family: "Figtree", sans-serif;
+}
+
+.navbar {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    width: 100%;
+    min-width: 0;
+    height: 74px;
+    margin: 0;
+    background: var(--store-dark);
+    box-shadow: 0 5px 18px rgba(20, 35, 43, 0.12);
+}
+
+.navbar .mypage {
+    display: flex;
+    width: min(1240px, calc(100% - 48px));
+    height: 100%;
+    margin: 0 auto;
+    padding: 0;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .menu {
+    display: flex;
+    width: auto;
+    height: 100%;
+    align-items: center;
+}
+
+.navbar .menu ul {
+    display: flex;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+    gap: 6px;
+}
+
+.navbar .menu ul li {
+    width: auto;
+    height: auto;
+    border-radius: 6px;
+    list-style: none;
+}
+
+.navbar .menu li:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.navbar .menu a,
+.navbar .more a {
+    display: flex;
+    width: auto;
+    height: auto;
+    padding: 12px 13px;
+    align-items: center;
+    color: #f7f8f6;
+    font-family: "Figtree", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.navbar .menu2 {
+    display: none;
+}
+
+.navbar .logo {
+    display: flex;
+    width: auto;
+    height: 100%;
+    margin: 0;
+    align-items: center;
+}
+
+.navbar .logo a {
+    width: auto;
+    height: auto;
+    color: #fff;
+    font-family: "Figtree", sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    text-decoration: none;
+}
+
+.navbar .more {
+    display: flex;
+    width: auto;
+    height: 100%;
+    align-items: center;
+    gap: 6px;
+}
+
+.navbar .nav-login,
+.navbar .nav-logout,
+.navbar .nav-cart {
+    display: flex;
+    width: auto;
+    height: auto;
+    margin: 0;
+    align-items: center;
+    cursor: pointer;
+}
+
+.navbar .more .nav-cart a {
+    padding: 10px;
+    color: #fff;
+}
+
+.navbar .nav-cart i {
+    width: auto;
+    margin: 0;
+    font-size: 22px;
+}
+
+.navbar-phone {
+    display: none;
+}
+
+.content {
+    display: none;
+}
+
+.storefront {
+    width: min(1240px, calc(100% - 48px));
+    margin: 28px auto 0;
+}
+
+.hero {
+    padding: 0;
+}
+
+.introdution {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 5 / 1;
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid rgba(23, 33, 43, 0.08);
+    border-radius: 14px;
+    background: #fff url("home/vwgolf ad1.jpg") center / cover no-repeat;
+    box-shadow: 0 12px 30px rgba(23, 33, 43, 0.08);
+}
+
+.hero-copy {
+    max-width: 760px;
+    margin: 42px 0 52px;
+}
+
+.eyebrow {
+    margin: 0 0 10px;
+    color: var(--store-accent);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+}
+
+.hero-copy h1 {
+    margin: 0;
+    color: var(--store-ink);
+    font-family: "Figtree", sans-serif;
+    font-size: clamp(36px, 5vw, 58px);
+    font-weight: 800;
+    letter-spacing: -2px;
+    line-height: 1.04;
+}
+
+.hero-copy > p:not(.eyebrow) {
+    max-width: 560px;
+    margin: 16px 0 22px;
+    color: var(--store-muted);
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.hero-link {
+    display: inline-flex;
+    min-height: 48px;
+    padding: 0 19px;
+    align-items: center;
+    gap: 12px;
+    border-radius: 6px;
+    background: var(--store-dark);
+    color: #fff;
+    font-family: "Figtree", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 160ms ease, transform 160ms ease;
+}
+
+.hero-link:hover {
+    transform: translateY(-2px);
+    background: #263d48;
+}
+
+.hero-link i {
+    font-size: 20px;
+}
+
+.generation-section,
+.catalog-section {
+    margin: 0;
+}
+
+.generation-section {
+    padding: 30px 0 54px;
+    border-top: 1px solid var(--store-line);
+}
+
+.section-heading {
+    margin-bottom: 20px;
+}
+
+.section-heading .eyebrow {
+    margin-bottom: 7px;
+}
+
+.section-heading h2 {
+    margin: 0;
+    color: var(--store-ink);
+    font-family: "Figtree", sans-serif;
+    font-size: clamp(24px, 3vw, 32px);
+    font-weight: 750;
+    letter-spacing: -0.8px;
+}
+
+.categories {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+}
+
+.categories ul {
+    display: grid;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    list-style: none;
+}
+
+.categories li {
+    width: auto;
+    min-width: 0;
+    min-height: 128px;
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--store-line);
+    border-radius: 8px;
+    background: #fff;
+    list-style: none;
+    transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.categories li:hover {
+    transform: translateY(-3px);
+    border-color: #e2a38e;
+    box-shadow: 0 12px 24px rgba(23, 33, 43, 0.08);
+}
+
+.categories a {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    min-height: 128px;
+    padding: 17px 18px;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: 1fr auto;
+    align-items: center;
+    color: var(--store-ink);
+    font-family: "Figtree", sans-serif;
+    text-decoration: none;
+}
+
+.generation-number {
+    grid-column: 1 / -1;
+    color: var(--store-accent);
+    font-size: 31px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1;
+}
+
+.generation-name {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.categories a i {
+    color: var(--store-muted);
+    font-size: 18px;
+    transition: color 160ms ease, transform 160ms ease;
+}
+
+.categories a:hover i {
+    transform: translate(2px, -2px);
+    color: var(--store-accent);
+}
+
+.catalog-section {
+    padding: 34px 0 66px;
+    border-top: 1px solid var(--store-line);
+}
+
+.catalog-heading {
+    display: flex;
+    margin-bottom: 18px;
+    align-items: end;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.catalog-heading .eyebrow {
+    margin-bottom: 7px;
+}
+
+.catalog-note {
+    max-width: 360px;
+    margin: 0 0 3px;
+    color: var(--store-muted);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.products {
+    position: static;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.products > ul,
+.products-golf-group > ul {
+    display: grid;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.products-golf-group {
+    width: 100%;
+}
+
+.products-golf-group + .products-golf-group {
+    margin-top: 34px;
+}
+
+.products-golf-title {
+    margin: 0 0 16px;
+    color: var(--store-ink);
+    font-family: "Figtree", sans-serif;
+    font-size: 21px;
+    letter-spacing: -0.3px;
+}
+
+.products li {
+    min-width: 0;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 10px;
+    overflow: hidden;
+    border: 1px solid var(--store-line);
+    border-radius: 8px;
+    background: #fff;
+    list-style: none;
+    transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.products li:hover {
+    transform: translateY(-3px);
+    border-color: #d0d8d9;
+    box-shadow: 0 12px 24px rgba(23, 33, 43, 0.09);
+}
+
+.products .product-link {
+    display: block;
+    overflow: hidden;
+    border-radius: 5px;
+    background: #f3f5f4;
+}
+
+.products .image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin: 0;
+    border-radius: 5px;
+    background-color: #f3f5f4;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: transform 180ms ease;
+}
+
+.products li:hover .image {
+    transform: scale(1.035);
+}
+
+.products .info {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 13px 3px 4px;
+}
+
+.products .name {
+    width: 100%;
+    height: auto;
+    margin: 0 0 8px;
+    color: var(--store-ink);
+    font-family: "Figtree", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.4;
+    text-align: left;
+}
+
+.products .name a {
+    display: block;
+    height: auto;
+    color: var(--store-ink);
+    font-family: "Figtree", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.4;
+    text-decoration: none;
+}
+
+.products .price {
+    width: 100%;
+    height: auto;
+    color: var(--store-accent);
+    font-family: "Figtree", sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    text-align: left;
+}
+
+.products .price a {
+    display: block;
+    height: auto;
+    color: var(--store-accent);
+    font-family: "Figtree", sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.site-footer {
+    display: flex;
+    min-height: 82px;
+    padding: 20px max(24px, calc((100% - 1240px) / 2));
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    border-top: 1px solid var(--store-line);
+    background: #fff;
+    color: var(--store-muted);
+    font-size: 13px;
+}
+
+.footer-brand {
+    color: var(--store-ink);
+    font-family: "Figtree", sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+@media (max-width: 920px) {
+    .navbar {
+        height: 68px;
+    }
+
+    .navbar .mypage {
+        width: calc(100% - 32px);
+    }
+
+    .navbar .menu ul {
+        gap: 0;
+    }
+
+    .navbar .menu a,
+    .navbar .more a {
+        padding: 10px 9px;
+        font-size: 13px;
+    }
+
+    .navbar .logo a {
+        font-size: 18px;
+    }
+
+    .storefront {
+        width: calc(100% - 36px);
+        margin-top: 22px;
+    }
+
+    .categories ul {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .products > ul,
+    .products-golf-group > ul {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 680px) {
+    .navbar {
+        display: none;
+    }
+
+    .navbar-phone {
+        display: flex;
+        height: 62px;
+        align-items: center;
+        background: var(--store-dark);
+    }
+
+    .navbar-phone .nav1 {
+        margin: 0 0 0 16px;
+    }
+
+    .navbar-phone .nav2 {
+        margin: 0 0 0 12px;
+    }
+
+    .navbar-phone .nav2 a,
+    .navbar-phone .nav3 a {
+        color: #fff;
+        font-family: "Figtree", sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    .navbar-phone .nav3 {
+        margin: 0 0 0 auto;
+    }
+
+    .navbar-phone .nav3 i {
+        color: #fff;
+        font-size: 23px;
+    }
+
+    .navbar-phone .nav4 {
+        margin: 0 16px;
+    }
+
+    .navbar-phone .nav4 i {
+        color: #fff;
+        font-size: 25px;
+    }
+
+    .content {
+        display: block;
+    }
+
+    .content .menu3 {
+        z-index: 4;
+        top: 62px;
+        width: 100%;
+        padding: 8px 18px;
+        background: #fff;
+        box-shadow: 0 10px 20px rgba(23, 33, 43, 0.12);
+    }
+
+    .content .menu3 ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    .content .menu3 li {
+        padding: 12px 0;
+        list-style: none;
+    }
+
+    .content .menu3 a {
+        color: var(--store-ink);
+        font-family: "Figtree", sans-serif;
+        text-decoration: none;
+    }
+
+    .storefront {
+        width: calc(100% - 32px);
+        margin-top: 16px;
+    }
+
+    .introdution {
+        border-radius: 9px;
+    }
+
+    .hero-copy {
+        margin: 30px 0 38px;
+    }
+
+    .hero-copy h1 {
+        font-size: clamp(34px, 10vw, 44px);
+        letter-spacing: -1.2px;
+    }
+
+    .hero-copy > p:not(.eyebrow) {
+        margin: 12px 0 18px;
+        font-size: 15px;
+    }
+
+    .generation-section {
+        padding: 24px 0 38px;
+    }
+
+    .categories ul {
+        gap: 10px;
+    }
+
+    .categories li,
+    .categories a {
+        min-height: 106px;
+    }
+
+    .categories a {
+        padding: 14px;
+    }
+
+    .generation-number {
+        font-size: 27px;
+    }
+
+    .catalog-section {
+        padding: 28px 0 46px;
+    }
+
+    .catalog-heading {
+        display: block;
+    }
+
+    .catalog-note {
+        margin-top: 10px;
+    }
+
+    .products > ul,
+    .products-golf-group > ul {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .products li {
+        padding: 7px;
+    }
+
+    .products .info {
+        padding: 10px 2px 3px;
+    }
+
+    .products .name,
+    .products .name a {
+        font-size: 13px;
+    }
+
+    .products .price,
+    .products .price a {
+        font-size: 14px;
+    }
+
+    .site-footer {
+        display: flex;
+        padding: 18px 16px;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+    }
+}
