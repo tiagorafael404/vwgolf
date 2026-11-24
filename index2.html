@@ -1,0 +1,666 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore parts and accessories for Volkswagen Golf generations 3, 4, 5 and 6.">
+    <title>VW Golf Parts &amp; Accessories</title>
+    <link rel="icon" href="logo.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="home/css.css">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            color-scheme: light;
+            --ink: #17243a;
+            --muted: #647086;
+            --blue: #1769d2;
+            --blue-dark: #0b2348;
+            --line: #e4e9f0;
+            --surface: #ffffff;
+            --page: #f5f7fa;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            display: block;
+            width: 100%;
+            min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+            background: var(--page);
+            color: var(--ink);
+            font-family: "Figtree", sans-serif;
+        }
+
+        .navbar {
+            position: relative;
+            z-index: 5;
+            display: flex;
+            width: 100%;
+            min-width: 0;
+            height: 76px;
+            margin: 0;
+            background: var(--blue-dark);
+            box-shadow: 0 4px 18px rgba(11, 35, 72, 0.12);
+        }
+
+        .navbar .mypage {
+            display: flex;
+            width: min(1200px, calc(100% - 48px));
+            height: 100%;
+            margin: 0 auto;
+            padding: 0;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar .menu {
+            display: flex;
+            width: auto;
+            height: 100%;
+            align-items: center;
+        }
+
+        .navbar .menu2 {
+            display: none;
+        }
+
+        .navbar .menu ul {
+            display: flex;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .navbar .menu ul li {
+            width: auto;
+            height: auto;
+            border-radius: 8px;
+            list-style: none;
+        }
+
+        .navbar .menu li:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar .menu a,
+        .navbar .more a {
+            display: flex;
+            width: auto;
+            height: auto;
+            padding: 12px 14px;
+            align-items: center;
+            color: #fff;
+            font-family: "Figtree", sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .navbar .logo {
+            display: flex;
+            width: auto;
+            height: 100%;
+            margin: 0;
+            align-items: center;
+        }
+
+        .navbar .logo a {
+            width: auto;
+            height: auto;
+            color: #fff;
+            font-family: "Figtree", sans-serif;
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            text-decoration: none;
+        }
+
+        .navbar .more {
+            display: flex;
+            width: auto;
+            height: 100%;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .navbar .nav-login,
+        .navbar .nav-logout,
+        .navbar .nav-cart {
+            display: flex;
+            width: auto;
+            height: auto;
+            margin: 0;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .navbar .more .nav-cart a {
+            padding: 10px;
+            color: #fff;
+        }
+
+        .navbar .nav-cart i {
+            width: auto;
+            margin: 0;
+            font-size: 23px;
+        }
+
+        .navbar-phone {
+            display: none;
+        }
+
+        .content {
+            display: none;
+        }
+
+        .introdution {
+            width: min(1200px, calc(100% - 48px));
+            height: auto;
+            aspect-ratio: 5 / 1;
+            margin: 28px auto 0;
+            overflow: hidden;
+            border: 1px solid rgba(15, 35, 65, 0.06);
+            border-radius: 18px;
+            background: #fff url("home/vwgolf ad1.jpg") center / cover no-repeat;
+            box-shadow: 0 12px 32px rgba(23, 36, 58, 0.09);
+        }
+
+        .welcome {
+            width: min(1200px, calc(100% - 48px));
+            margin: 44px auto 24px;
+        }
+
+        .eyebrow {
+            margin: 0 0 8px;
+            color: var(--blue);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .welcome h1 {
+            margin: 0;
+            color: var(--ink);
+            font-family: "Figtree", sans-serif;
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 800;
+            letter-spacing: -1.2px;
+            line-height: 1.12;
+        }
+
+        .welcome p:last-child {
+            max-width: 620px;
+            margin: 12px 0 0;
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.65;
+        }
+
+        .model-section,
+        .catalog-section {
+            width: min(1200px, calc(100% - 48px));
+            margin: 0 auto;
+        }
+
+        .section-heading {
+            display: flex;
+            margin-bottom: 16px;
+            align-items: end;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .section-heading h2 {
+            margin: 0;
+            color: var(--ink);
+            font-family: "Figtree", sans-serif;
+            font-size: 21px;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+
+        .categories {
+            display: block;
+            width: 100%;
+            height: auto;
+            margin: 0;
+        }
+
+        .categories ul {
+            display: grid;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+            list-style: none;
+        }
+
+        .categories li {
+            width: auto;
+            min-height: 94px;
+            margin: 0;
+            padding: 0;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: var(--surface);
+            box-shadow: 0 3px 12px rgba(23, 36, 58, 0.03);
+            transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+        }
+
+        .categories li:hover {
+            transform: translateY(-2px);
+            border-color: #b7d2f4;
+            box-shadow: 0 10px 24px rgba(23, 36, 58, 0.08);
+        }
+
+        .categories a {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            min-height: 94px;
+            padding: 18px 20px;
+            align-items: center;
+            justify-content: space-between;
+            color: var(--ink);
+            font-family: "Figtree", sans-serif;
+            font-size: 17px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .categories a::after {
+            content: "\2192";
+            color: var(--blue);
+            font-size: 20px;
+            transition: transform 160ms ease;
+        }
+
+        .categories a:hover::after {
+            transform: translateX(3px);
+        }
+
+        .catalog-section {
+            margin-top: 52px;
+            margin-bottom: 72px;
+        }
+
+        .products {
+            position: static;
+            width: 100%;
+            height: auto;
+            margin: 0;
+            padding: 18px;
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            background: var(--surface);
+            box-shadow: 0 6px 24px rgba(23, 36, 58, 0.04);
+        }
+
+        .products > ul,
+        .products-golf-group > ul {
+            display: grid;
+            width: 100%;
+            height: auto;
+            margin: 0;
+            padding: 0;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .products-golf-group {
+            width: 100%;
+        }
+
+        .products-golf-group + .products-golf-group {
+            margin-top: 36px;
+        }
+
+        .products-golf-title {
+            margin: 10px 0 18px;
+            color: var(--ink);
+            font-family: "Figtree", sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 0;
+        }
+
+        .products li {
+            width: auto;
+            height: auto;
+            min-width: 0;
+            margin: 0;
+            padding: 10px;
+            overflow: hidden;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: #fff;
+            list-style: none;
+            transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+        }
+
+        .products li:hover {
+            transform: translateY(-3px);
+            border-color: #c9d9ed;
+            box-shadow: 0 12px 24px rgba(23, 36, 58, 0.09);
+        }
+
+        .products .product-link {
+            display: block;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #f5f7fa;
+        }
+
+        .products .image {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            margin: 0;
+            border-radius: 8px;
+            background-color: #f5f7fa;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            transition: transform 180ms ease;
+        }
+
+        .products li:hover .image {
+            transform: scale(1.035);
+        }
+
+        .products .info {
+            width: 100%;
+            height: auto;
+            margin: 0;
+            padding: 14px 4px 5px;
+        }
+
+        .products .name {
+            width: 100%;
+            height: auto;
+            margin: 0 0 8px;
+            color: var(--ink);
+            font-family: "Figtree", sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            line-height: 1.4;
+            text-align: left;
+        }
+
+        .products .name a {
+            display: block;
+            height: auto;
+            color: var(--ink);
+            font-family: "Figtree", sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            line-height: 1.4;
+            text-decoration: none;
+        }
+
+        .products .price {
+            width: 100%;
+            height: auto;
+            color: var(--blue-dark);
+            font-family: "Figtree", sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            text-align: left;
+        }
+
+        .products .price a {
+            display: block;
+            height: auto;
+            color: var(--blue-dark);
+            font-family: "Figtree", sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        footer {
+            padding: 24px;
+            border-top: 1px solid var(--line);
+            background: #fff;
+            color: var(--muted);
+            font-size: 13px;
+            text-align: center;
+        }
+
+        @media (max-width: 900px) {
+            .navbar {
+                display: none;
+            }
+
+            .navbar-phone {
+                display: flex;
+                height: 64px;
+                align-items: center;
+                background: var(--blue-dark);
+                box-shadow: 0 4px 18px rgba(11, 35, 72, 0.12);
+            }
+
+            .navbar-phone .nav1,
+            .navbar-phone .nav2,
+            .navbar-phone .nav3,
+            .navbar-phone .nav4 {
+                margin-top: 0;
+                margin-bottom: 0;
+            }
+
+            .navbar-phone .nav1 {
+                margin-left: 18px;
+            }
+
+            .navbar-phone .nav2 {
+                margin-left: 14px;
+            }
+
+            .navbar-phone .nav2 a,
+            .navbar-phone .nav3 a {
+                color: #fff;
+                font-family: "Figtree", sans-serif;
+                font-size: 15px;
+                font-weight: 600;
+                text-decoration: none;
+            }
+
+            .navbar-phone .nav3 {
+                margin-left: auto;
+            }
+
+            .navbar-phone .nav3 i {
+                color: #fff;
+                font-size: 24px;
+            }
+
+            .navbar-phone .nav4 {
+                margin-right: 18px;
+                margin-left: 18px;
+            }
+
+            .navbar-phone .nav4 i {
+                color: #fff;
+                font-size: 26px;
+            }
+
+            .content {
+                display: block;
+            }
+
+            .content .menu3 {
+                z-index: 4;
+                top: 64px;
+                width: 100%;
+                padding: 8px 18px;
+                background: #fff;
+                box-shadow: 0 8px 16px rgba(23, 36, 58, 0.08);
+            }
+
+            .content .menu3 ul {
+                margin: 0;
+                padding: 0;
+            }
+
+            .content .menu3 li {
+                padding: 12px 0;
+                list-style: none;
+            }
+
+            .content .menu3 a {
+                color: var(--ink);
+                font-family: "Figtree", sans-serif;
+                text-decoration: none;
+            }
+
+            .introdution,
+            .welcome,
+            .model-section,
+            .catalog-section {
+                width: min(100% - 32px, 720px);
+            }
+
+            .introdution {
+                height: auto;
+                margin-top: 18px;
+                border-radius: 14px;
+            }
+
+            .welcome {
+                margin-top: 32px;
+            }
+
+            .categories ul {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .products > ul,
+            .products-golf-group > ul {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 560px) {
+            .welcome h1 {
+                letter-spacing: -0.7px;
+            }
+
+            .welcome p:last-child {
+                font-size: 14px;
+            }
+
+            .categories ul {
+                gap: 10px;
+            }
+
+            .categories li,
+            .categories a {
+                min-height: 76px;
+            }
+
+            .categories a {
+                padding: 14px;
+                font-size: 15px;
+            }
+
+            .catalog-section {
+                margin-top: 38px;
+                margin-bottom: 48px;
+            }
+
+            .products {
+                padding: 10px;
+                border-radius: 12px;
+            }
+
+            .products > ul,
+            .products-golf-group > ul {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 10px;
+            }
+
+            .products li {
+                padding: 7px;
+                border-radius: 10px;
+            }
+
+            .products .info {
+                padding: 10px 2px 3px;
+            }
+
+            .products .name,
+            .products .name a {
+                font-size: 13px;
+            }
+
+            .products .price,
+            .products .price a {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="introdution" role="img" aria-label="Volkswagen Golf generations 3 to 6"></div>
+
+        <section class="welcome" aria-labelledby="page-title">
+            <p class="eyebrow">VW Golf parts &amp; accessories</p>
+            <h1 id="page-title">Find the right parts for your Golf</h1>
+            <p>Browse parts and accessories by generation, or explore the full collection below.</p>
+        </section>
+
+        <section class="model-section" aria-labelledby="model-title">
+            <div class="section-heading">
+                <h2 id="model-title">Shop by generation</h2>
+            </div>
+            <nav class="categories" aria-label="Choose your Golf generation">
+                <ul>
+                    <li><a href="golf3">Golf 3</a></li>
+                    <li><a href="golf4">Golf 4</a></li>
+                    <li><a href="golf5">Golf 5</a></li>
+                    <li><a href="golf6">Golf 6</a></li>
+                </ul>
+            </nav>
+        </section>
+
+        <section class="catalog-section" aria-labelledby="catalog-title">
+            <div class="section-heading">
+                <h2 id="catalog-title">Explore parts</h2>
+            </div>
+            <div class="products">
+                <ul id="products-list"></ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>VW Golf parts &amp; accessories</footer>
+
+    <script src="shared-modals.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="cookies.js"></script>
+    <script src="item-page.js"></script>
+    <script src="navbar.js"></script>
+</body>
+</html>

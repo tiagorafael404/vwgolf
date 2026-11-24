@@ -18,7 +18,7 @@ body {
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    margin: 3 auto auto auto;
+    margin: auto auto auto auto;
     width: 100%;
     overflow-x: hidden;
 
@@ -86,7 +86,7 @@ body {
         min-width: 100%;
         max-width: 100%;
         width: auto;
-        height: 80px;
+        height: 70px;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -275,7 +275,19 @@ body {
         align-content: center;
         padding: 0 10 0 10;
         cursor: pointer;
+        border-width: 2px;
+        border-style: solid ;
+        border-color: #4880e900;
+
+
     }
+
+        .navbar2 ul li:hover{
+            border-style: solid ;
+            border-color: white;
+            border-width: 2px;
+
+        }
 
     .freeshipping a {
         font-family: "Fjalla One", sans-serif;
